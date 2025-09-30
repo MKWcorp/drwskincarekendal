@@ -231,21 +231,21 @@ const LandingPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             <div className="bg-white rounded-lg md:rounded-2xl shadow-lg p-4 md:p-8">
               <p className="text-gray-600 mb-3 md:mb-4 italic text-sm md:text-base">
-                "Produk DRW Skincare membuat kulit saya lebih cerah dan sehat! Pelayanannya sangat memuaskan."
+                &ldquo;Produk DRW Skincare membuat kulit saya lebih cerah dan sehat! Pelayanannya sangat memuaskan.&rdquo;
               </p>
               <p className="font-semibold text-primary text-sm md:text-base">- Sarah M.</p>
             </div>
             
             <div className="bg-white rounded-lg md:rounded-2xl shadow-lg p-4 md:p-8">
               <p className="text-gray-600 mb-3 md:mb-4 italic text-sm md:text-base">
-                "Konsultasi gratis yang sangat membantu. Sekarang kulit wajah saya bebas jerawat!"
+                &ldquo;Konsultasi gratis yang sangat membantu. Sekarang kulit wajah saya bebas jerawat!&rdquo;
               </p>
               <p className="font-semibold text-primary text-sm md:text-base">- Rina K.</p>
             </div>
             
             <div className="bg-white rounded-lg md:rounded-2xl shadow-lg p-4 md:p-8">
               <p className="text-gray-600 mb-3 md:mb-4 italic text-sm md:text-base">
-                "DNA Salmon Serum benar-benar ampuh untuk anti aging. Highly recommended!"
+                &ldquo;DNA Salmon Serum benar-benar ampuh untuk anti aging. Highly recommended!&rdquo;
               </p>
               <p className="font-semibold text-primary text-sm md:text-base">- Maya L.</p>
             </div>
