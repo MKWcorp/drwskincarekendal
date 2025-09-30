@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt, faEnvelope, faPhone, faShoppingCart, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faMapMarkerAlt, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 
 interface Product {
   id: string;
@@ -15,6 +15,15 @@ interface Product {
   categories?: {
     name: string;
   } | null;
+}
+
+interface StaticProduct {
+  id: string;
+  namaProduk: string;
+  category: string;
+  hargaUmum: number;
+  gambar: string | null;
+  bgColor?: string;
 }
 
 const LandingPage = () => {
@@ -47,6 +56,76 @@ const LandingPage = () => {
       currency: 'IDR',
       minimumFractionDigits: 0,
     }).format(Number(price));
+  };
+
+  // Static products to fill remaining slots (melanjutkan dari produk API)
+  const staticProducts: StaticProduct[] = [
+    { id: 'static-1', namaProduk: 'DNA Salmon Serum', category: 'Anti Aging', hargaUmum: 450000, gambar: '/images/produk1.svg' },
+    { id: 'static-2', namaProduk: 'Vitamin C Brightening Serum', category: 'Brightening', hargaUmum: 320000, gambar: '/images/produk2.svg' },
+    { id: 'static-3', namaProduk: 'Acne Treatment Serum', category: 'Acne Care', hargaUmum: 280000, gambar: '/images/produk3.svg' },
+    { id: 'static-4', namaProduk: 'Hyaluronic Acid Moisturizer', category: 'Moisturizer', hargaUmum: 250000, gambar: null, bgColor: 'from-pink-100 to-pink-200' },
+    { id: 'static-5', namaProduk: 'SPF 50+ Sunscreen', category: 'Sunscreen', hargaUmum: 180000, gambar: null, bgColor: 'from-blue-100 to-blue-200' },
+    { id: 'static-6', namaProduk: 'Gentle Foam Cleanser', category: 'Cleanser', hargaUmum: 150000, gambar: null, bgColor: 'from-green-100 to-green-200' },
+    { id: 'static-7', namaProduk: 'Hydrating Toner', category: 'Toner', hargaUmum: 120000, gambar: null, bgColor: 'from-purple-100 to-purple-200' },
+    { id: 'static-8', namaProduk: 'Eye Cream Anti Aging', category: 'Eye Care', hargaUmum: 380000, gambar: null, bgColor: 'from-yellow-100 to-yellow-200' }
+  ];
+
+  // Menampilkan 8 produk total: Produk API dulu, lalu produk static untuk slot yang tersisa
+  const getDisplayProducts = (): (Product | StaticProduct)[] => {
+    const allProducts: (Product | StaticProduct)[] = [...featuredProducts];
+    const remainingSlots = 8 - allProducts.length;
+    
+    if (remainingSlots > 0) {
+      allProducts.push(...staticProducts.slice(0, remainingSlots));
+    }
+    
+    return allProducts.slice(0, 8);
+  };
+
+  const renderProduct = (product: Product | StaticProduct, index: number) => {
+    const isStatic = !('deskripsi' in product);
+    const staticProduct = product as StaticProduct;
+    
+    return (
+      <div key={product.id} className="bg-white rounded-lg md:rounded-2xl shadow-lg p-3 md:p-6 text-center hover:shadow-xl transition-shadow">
+        <div className="relative w-full h-32 md:h-48 mb-3 md:mb-4">
+          {product.gambar ? (
+            <Image 
+              src={product.gambar} 
+              alt={product.namaProduk} 
+              fill
+              className="object-cover rounded-xl"
+            />          ) : (            <div className={`flex items-center justify-center h-full rounded-xl ${
+              isStatic && staticProduct.bgColor 
+                ? `bg-gradient-to-br ${staticProduct.bgColor}` 
+                : 'bg-gray-100'
+            }`}>
+              <FontAwesomeIcon icon={faShoppingCart} className="text-4xl text-primary" />
+            </div>
+          )}
+        </div>
+        
+        {/* Category */}
+        <div className="inline-block bg-primary/10 text-primary text-xs px-2 md:px-3 py-1 rounded-full mb-2 md:mb-3">
+          {isStatic ? staticProduct.category : (product as Product).categories?.name || 'Skincare'}
+        </div>
+        
+        <h3 className="text-sm md:text-xl font-semibold text-gray-800 mb-2 md:mb-3 line-clamp-2">
+          {product.namaProduk}
+        </h3>
+        
+        {/* Price */}
+        <div className="text-sm md:text-lg font-bold text-primary mb-3 md:mb-4">
+          {formatPrice(product.hargaUmum)}
+        </div>          <a 
+          href={`https://wa.me/6285852555571?text=Halo%20kak%20aku%20mau%20tanya%20produk%20${encodeURIComponent(product.namaProduk)}`}
+          className="bg-primary text-white px-4 md:px-6 py-2 rounded-lg hover:bg-pink-600 transition-colors inline-block text-xs md:text-sm"
+        >
+          <FontAwesomeIcon icon={faShoppingCart} className="mr-2" />
+          Beli Sekarang
+        </a>
+      </div>
+    );
   };
 
   return (
@@ -109,16 +188,16 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Produk Section */}
+      {/* Produk Section - Sekarang menampilkan 8 produk */}
       <section id="produk" className="py-12 md:py-20 px-4 md:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold text-center text-gray-800 mb-8 md:mb-16">
             Produk Pilihan DRW Skincare
           </h2>
-          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {loading ? (
-              // Loading skeleton
-              [...Array(3)].map((_, index) => (
+              // Loading skeleton - 8 produk
+              [...Array(8)].map((_, index) => (
                 <div key={index} className="bg-white rounded-lg md:rounded-2xl shadow-lg p-3 md:p-6 text-center animate-pulse">
                   <div className="w-full h-32 md:h-48 mb-3 md:mb-4 bg-gray-300 rounded-xl"></div>
                   <div className="h-4 bg-gray-300 rounded mb-2"></div>
@@ -126,69 +205,9 @@ const LandingPage = () => {
                   <div className="h-8 bg-gray-300 rounded"></div>
                 </div>
               ))
-            ) : featuredProducts.length > 0 ? (
-              featuredProducts.map((product) => (
-                <div key={product.id} className="bg-white rounded-lg md:rounded-2xl shadow-lg p-3 md:p-6 text-center hover:shadow-xl transition-shadow">
-                  <div className="relative w-full h-32 md:h-48 mb-3 md:mb-4">
-                    {product.gambar ? (
-                      <Image 
-                        src={product.gambar} 
-                        alt={product.namaProduk} 
-                        fill
-                        className="object-cover rounded-xl"
-                      />
-                    ) : (
-                      <div className="flex items-center justify-center h-full bg-gray-100 rounded-xl">
-                        <FontAwesomeIcon icon={faShoppingCart} className="text-4xl text-gray-400" />
-                      </div>
-                    )}
-                  </div>
-                  
-                  {/* Category */}
-                  {product.categories && (
-                    <div className="inline-block bg-primary/10 text-primary text-xs px-2 md:px-3 py-1 rounded-full mb-2 md:mb-3">
-                      {product.categories.name}
-                    </div>
-                  )}
-                  
-                  <h3 className="text-sm md:text-xl font-semibold text-gray-800 mb-2 md:mb-3 line-clamp-2">
-                    {product.namaProduk}
-                  </h3>
-                  
-                  {/* Price */}
-                  <div className="text-sm md:text-lg font-bold text-primary mb-3 md:mb-4">
-                    {formatPrice(product.hargaUmum)}
-                  </div>
-                  
-                  <a 
-                    href={`https://wa.me/6285852555571?text=Halo%20kak%20aku%20mau%20tanya%20produk%20${encodeURIComponent(product.namaProduk)}`}
-                    className="bg-primary text-white px-4 md:px-6 py-2 rounded-lg hover:bg-pink-600 transition-colors inline-block text-xs md:text-sm"
-                  >
-                    <FontAwesomeIcon icon={faShoppingCart} className="mr-1" />
-                    Beli Sekarang
-                  </a>
-                </div>
-              ))
             ) : (
-              // Fallback static products
-              <div className="bg-white rounded-lg md:rounded-2xl shadow-lg p-3 md:p-6 text-center hover:shadow-xl transition-shadow">
-                <div className="relative w-full h-32 md:h-48 mb-3 md:mb-4">
-                  <Image 
-                    src="/images/produk1.svg" 
-                    alt="DNA Salmon Serum" 
-                    fill
-                    className="object-cover rounded-xl"
-                  />
-                </div>
-                <h3 className="text-sm md:text-xl font-semibold text-gray-800 mb-3 md:mb-4">DNA Salmon Serum</h3>
-                <a 
-                  href="https://wa.me/6285852555571?text=Halo%20kak%20aku%20mau%20tanya%20produk%20DNA%20Salmon%20Serum" 
-                  className="bg-primary text-white px-4 md:px-6 py-2 rounded-lg hover:bg-pink-600 transition-colors inline-block text-xs md:text-sm"
-                >
-                  <FontAwesomeIcon icon={faShoppingCart} className="mr-1" />
-                  Beli Sekarang
-                </a>
-              </div>
+              // Menampilkan 8 produk: API + static sebagai fallback
+              getDisplayProducts().map((product, index) => renderProduct(product, index))
             )}
           </div>
           
@@ -274,9 +293,7 @@ const LandingPage = () => {
               </p>
             </div>
             
-            <div>
-              <h4 className="text-xl font-semibold mb-4">Kontak Info</h4>
-              <div className="space-y-2 text-gray-300">
+            <div>              <h4 className="text-xl font-semibold mb-4">Kontak Info</h4>              <div className="space-y-2 text-gray-300">
                 <p><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /> DRW Skincare Pusat Banyuwangi</p>
                 <p><FontAwesomeIcon icon={faEnvelope} className="mr-2" /> info@drwskincare.com</p>
                 <p><FontAwesomeIcon icon={faPhone} className="mr-2" /> 0858-5255-5571</p>
