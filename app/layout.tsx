@@ -6,10 +6,48 @@ import FloatingWhatsApp from '../components/FloatingWhatsApp'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'DRW Skincare Banyuwangi - Perawatan Kulit Terbaik',
-  description: 'Solusi perawatan kulit terbaik dengan produk berkualitas dan konsultasi profesional di Banyuwangi.',
+  title: 'DRW Skincare Banyuwangi - Klinik Kecantikan & Perawatan Kulit Terbaik',
+  description: 'Klinik kecantikan DRW Skincare di Banyuwangi menyediakan perawatan kulit profesional, facial, treatment anti aging, dan produk skincare berkualitas. Konsultasi gratis dengan dokter berpengalaman.',
+  keywords: 'DRW Skincare, klinik kecantikan Banyuwangi, perawatan kulit Banyuwangi, facial Banyuwangi, skincare Banyuwangi, treatment wajah, anti aging, jerawat, whitening, dokter kulit Banyuwangi, kosmetik Banyuwangi, kecantikan Jember, perawatan wajah Situbondo',
+  authors: [{ name: 'DRW Skincare Banyuwangi' }],
+  creator: 'DRW Skincare',
+  publisher: 'DRW Skincare Banyuwangi',
+  robots: 'index, follow',
+  viewport: 'width=device-width, initial-scale=1',
   icons: {
     icon: '/favicon.ico',
+    apple: '/logo_drwskincare_square.png',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'id_ID',
+    url: 'https://drwskincarebanyuwangi.vercel.app',
+    siteName: 'DRW Skincare Banyuwangi',
+    title: 'DRW Skincare Banyuwangi - Klinik Kecantikan & Perawatan Kulit Terbaik',
+    description: 'Klinik kecantikan DRW Skincare di Banyuwangi menyediakan perawatan kulit profesional, facial, treatment anti aging, dan produk skincare berkualitas.',
+    images: [
+      {
+        url: '/logo_drwskincare.png',
+        width: 1200,
+        height: 630,
+        alt: 'DRW Skincare Banyuwangi - Klinik Kecantikan Terbaik',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'DRW Skincare Banyuwangi - Klinik Kecantikan Terbaik',
+    description: 'Perawatan kulit profesional di Banyuwangi dengan dokter berpengalaman dan produk berkualitas.',
+    images: ['/logo_drwskincare.png'],
+  },
+  alternates: {
+    canonical: 'https://drwskincarebanyuwangi.vercel.app',
+  },
+  other: {
+    'geo.region': 'ID-JI',
+    'geo.placename': 'Banyuwangi',
+    'geo.position': '-8.2325;114.3675',
+    'ICBM': '-8.2325, 114.3675',
   },
 }
 
@@ -18,8 +56,79 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "DRW Skincare Banyuwangi",
+    "description": "Klinik kecantikan dan perawatan kulit profesional di Banyuwangi dengan dokter berpengalaman",
+    "url": "https://drwskincarebanyuwangi.vercel.app",
+    "logo": "https://drwskincarebanyuwangi.vercel.app/logo_drwskincare.png",
+    "image": "https://drwskincarebanyuwangi.vercel.app/logo_drwskincare.png",
+    "telephone": "+62-858-5255-5571",
+    "email": "info@drwskincare.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "DRW Skincare Pusat",
+      "addressLocality": "Banyuwangi",
+      "addressRegion": "Jawa Timur",
+      "postalCode": "68400",
+      "addressCountry": "ID"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -8.2325,
+      "longitude": 114.3675
+    },
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Banyuwangi"
+      },
+      {
+        "@type": "City", 
+        "name": "Jember"
+      },
+      {
+        "@type": "City",
+        "name": "Situbondo"
+      }
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "dr. Wahyu Triasmara, M.Kes AAAM, AIFO-K",
+      "jobTitle": "Dokter & Founder"
+    },
+    "medicalSpecialty": [
+      "Dermatology",
+      "Cosmetic Medicine",
+      "Anti-Aging Treatment"
+    ],
+    "serviceType": [
+      "Facial Treatment",
+      "Anti Aging Treatment",
+      "Acne Treatment", 
+      "Skin Whitening",
+      "Skincare Products",
+      "Beauty Consultation"
+    ],
+    "priceRange": "$$",
+    "openingHours": "Mo-Su 09:00-21:00",
+    "sameAs": [
+      "https://wa.me/6285852555571"
+    ]
+  };
+
   return (
     <html lang="id">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(structuredData)
+          }}
+        />
+        <meta name="google-site-verification" content="GOOGLE_VERIFICATION_CODE" />
+      </head>
       <body className={inter.className}>
         {children}
         <FloatingWhatsApp />

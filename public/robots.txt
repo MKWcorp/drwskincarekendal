@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://drwskincarebanyuwangi.vercel.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Block unnecessary paths
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /*.json$
+
+# Allow important pages
+Allow: /
+Allow: /product
+Allow: /treatment
+Allow: /product/*

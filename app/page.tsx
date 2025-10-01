@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import Head from 'next/head';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faMapMarkerAlt, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 
@@ -204,10 +205,10 @@ const LandingPage = () => {
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
             <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-gray-800 mb-4 md:mb-6">
-              Kulit Sehat dan Cantik Dimulai dari Sini!
+              Klinik Kecantikan DRW Skincare Banyuwangi - Kulit Sehat dan Cantik Dimulai dari Sini!
             </h1>
             <p className="text-base md:text-xl text-gray-600 mb-6 md:mb-8">
-              Solusi perawatan kulit terbaik dengan produk berkualitas dan konsultasi profesional langsung dari dokter berpengalaman.
+              Solusi perawatan kulit terbaik di Banyuwangi dengan produk skincare berkualitas dan konsultasi profesional langsung dari dr. Wahyu Triasmara. Melayani Banyuwangi, Jember, dan Situbondo.
             </p>
             <a 
               href="https://wa.me/6285852555571" 
@@ -250,7 +251,7 @@ const LandingPage = () => {
       <section id="produk" className="py-12 md:py-20 px-4 md:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold text-center text-gray-800 mb-8 md:mb-16">
-            Produk Pilihan DRW Skincare
+            Produk Skincare Terbaik DRW Banyuwangi - Perawatan Kulit Profesional
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {loading ? (
@@ -413,7 +414,7 @@ const LandingPage = () => {
               <div className="mb-4">
                 <Image 
                   src="/logo_drwskincare.png" 
-                  alt="DRW Skincare Logo" 
+                  alt="DRW Skincare Banyuwangi - Klinik Kecantikan dan Perawatan Kulit Terbaik" 
                   width={300}
                   height={100}
                   className="h-16 w-auto"
