@@ -16,7 +16,7 @@ export const metadata: Metadata = {
       },
     ],
     type: 'website',
-    siteName: 'DRW Skincare Banyuwangi',
+    siteName: 'DRW Skincare',
     url: 'https://drwskincarebanyuwangi.com/product',
     locale: 'id_ID',
   },

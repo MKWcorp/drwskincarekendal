@@ -1,29 +1,29 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Perawatan Kulit & Kecantikan DRW Skincare - Treatment Profesional Banyuwangi',
-  description: 'Pusat Perawatan Kulit & Kecantikan DRW Skincare Banyuwangi. Treatment facial profesional, anti aging, whitening, jerawat, mikrodermabrasi, chemical peeling dengan dokter berpengalaman. Perawatan kulit terdepan dengan hasil optimal.',
-  keywords: 'perawatan kulit banyuwangi, kecantikan DRW skincare, treatment facial banyuwangi, perawatan kulit profesional, klinik kecantikan banyuwangi, facial whitening, anti aging treatment, perawatan jerawat, mikrodermabrasi banyuwangi, chemical peeling, RF treatment, dokter kulit banyuwangi',
+  title: 'Perawatan Kulit & Kecantikan DRW Skincare - Treatment Profesional DRW Skincare',
+  description: 'Pusat Perawatan Kulit & Kecantikan DRW Skincare. Treatment facial profesional, anti aging, whitening, jerawat, mikrodermabrasi, chemical peeling dengan dokter berpengalaman. Perawatan kulit terdepan dengan hasil optimal.',
+  keywords: 'perawatan kulit, kecantikan DRW skincare, treatment facial, perawatan kulit profesional, klinik kecantikan, facial whitening, anti aging treatment, perawatan jerawat, mikrodermabrasi, chemical peeling, RF treatment, dokter kulit',
   openGraph: {
-    title: 'Perawatan Kulit & Kecantikan DRW Skincare - Treatment Profesional Banyuwangi',
-    description: 'Pusat Perawatan Kulit & Kecantikan terpercaya di Banyuwangi. Treatment facial profesional dengan teknologi terdepan dan dokter berpengalaman untuk hasil kulit yang optimal.',
+    title: 'Perawatan Kulit & Kecantikan DRW Skincare - Treatment Profesional DRW Skincare',
+    description: 'Pusat Perawatan Kulit & Kecantikan terpercaya. Treatment facial profesional dengan teknologi terdepan dan dokter berpengalaman untuk hasil kulit yang optimal.',
     images: [
       {
         url: '/logo_drwskincare_square.png',
         width: 1200,
         height: 1200,
-        alt: 'DRW Skincare - Perawatan Kulit & Kecantikan Profesional Banyuwangi',
+        alt: 'DRW Skincare - Perawatan Kulit & Kecantikan Profesional',
       },
     ],
     type: 'website',
-    siteName: 'DRW Skincare Banyuwangi',
+    siteName: 'DRW Skincare',
     url: 'https://drwskincarebanyuwangi.com/treatment',
     locale: 'id_ID',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Perawatan Kulit & Kecantikan DRW Skincare Banyuwangi',
-    description: 'Pusat Perawatan Kulit & Kecantikan terpercaya di Banyuwangi dengan treatment profesional.',
+    description: 'Pusat Perawatan Kulit & Kecantikan terpercaya dengan treatment profesional.',
     images: ['/logo_drwskincare_square.png'],
   },
   alternates: {
