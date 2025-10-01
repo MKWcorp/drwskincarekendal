@@ -75,12 +75,7 @@ const ProductPage = () => {
     window.open(whatsappUrl, '_blank');
   };
 
-  const handleProductDetail = (product: Product) => {
-    // For now, we'll show product details via WhatsApp
-    const message = `Halo kak aku mau tanya detail produk ${product.namaProduk}. Bisa dijelaskan lebih lengkap?`;
-    const whatsappUrl = `https://wa.me/6285852555571?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
+
 
   const handleImageError = (productId: string) => {
     setImageErrors(prev => new Set(Array.from(prev).concat(productId)));
@@ -224,9 +219,10 @@ const ProductPage = () => {
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-6">
               {products.map((product) => (
-                <div 
+                <Link 
+                  href={`/product/${product.slug}`}
                   key={product.id} 
-                  className="bg-white rounded-lg md:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primary/20"
+                  className="bg-white rounded-lg md:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primary/20 group cursor-pointer"
                 >
                   {/* Product Image */}
                   <div className="relative h-32 md:h-48 bg-gray-100">
@@ -285,22 +281,23 @@ const ProductPage = () => {
                     {/* Action Buttons */}
                     <div className="flex gap-1 md:gap-2">
                       <button
-                        onClick={() => handleWhatsAppOrder(product.namaProduk)}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleWhatsAppOrder(product.namaProduk);
+                        }}
                         className="flex-1 bg-primary text-white py-2 md:py-3 rounded-lg hover:bg-pink-600 transition-colors font-semibold text-xs md:text-sm"
                       >
                         <FontAwesomeIcon icon={faShoppingCart} className="mr-1" />
                         Beli
                       </button>
-                      <button
-                        onClick={() => handleProductDetail(product)}
-                        className="flex-1 bg-gray-100 text-gray-700 py-2 md:py-3 rounded-lg hover:bg-gray-200 transition-colors font-semibold text-xs md:text-sm"
-                      >
+                      <div className="flex-1 bg-gray-100 text-gray-700 py-2 md:py-3 rounded-lg hover:bg-gray-200 transition-colors font-semibold text-xs md:text-sm text-center">
                         <FontAwesomeIcon icon={faInfoCircle} className="mr-1" />
                         Detail
-                      </button>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           )}
