@@ -4,6 +4,7 @@ export const metadata: Metadata = {
   title: 'Produk Kecantikan & Skincare DRW Skincare - Produk Dokter Terpercaya',
   description: 'Koleksi lengkap Produk Kecantikan & Skincare DRW Skincare dengan formula dokter. Serum anti aging, moisturizer, cleanser, facial cream, whitening serum, acne cream dan produk skincare profesional BPOM untuk semua jenis kulit.',
   keywords: 'produk kecantikan DRW skincare, skincare DRW banyuwangi, produk skincare dokter, serum anti aging, whitening serum, acne cream, facial moisturizer, cleanser wajah, produk kecantikan BPOM, skincare profesional, cosmeceutical, produk dokter kulit',
+  metadataBase: new URL('https://drwskincarebanyuwangi.com'),
   openGraph: {
     title: 'Produk Kecantikan & Skincare DRW Skincare - Formula Dokter Terpercaya',
     description: 'Koleksi lengkap Produk Kecantikan & Skincare DRW Skincare dengan formula dokter berpengalaman. Produk skincare profesional BPOM untuk hasil kulit optimal dan aman.',
@@ -29,4 +30,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://drwskincarebanyuwangi.com/product',
   },
+}
+
+export default function ProductLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return children
 }
