@@ -205,10 +205,10 @@ const LandingPage = () => {
         <div className="max-w-6xl mx-auto flex flex-col lg:flex-row items-center">
           <div className="lg:w-1/2 text-center lg:text-left mb-8 lg:mb-0">
             <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold text-gray-800 mb-4 md:mb-6">
-              Klinik Kecantikan DRW Skincare Banyuwangi - Kulit Sehat dan Cantik Dimulai dari Sini!
+              DRW Skincare - Kulit Sehat dan Cantik Dimulai dari Sini!
             </h1>
             <p className="text-base md:text-xl text-gray-600 mb-6 md:mb-8">
-              Solusi perawatan kulit terbaik di Banyuwangi dengan produk skincare berkualitas dan konsultasi profesional langsung dari dr. Wahyu Triasmara. Melayani Banyuwangi, Jember, dan Situbondo.
+              Solusi perawatan kulit terbaik dengan produk skincare berkualitas dan konsultasi profesional langsung dari dr. Wahyu Triasmara.
             </p>
             <a 
               href="https://wa.me/6285852555571" 
@@ -251,7 +251,7 @@ const LandingPage = () => {
       <section id="produk" className="py-12 md:py-20 px-4 md:px-6 bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-2xl md:text-4xl font-bold text-center text-gray-800 mb-8 md:mb-16">
-            Produk Skincare Terbaik DRW Banyuwangi - Perawatan Kulit Profesional
+            Produk DRW Skincare
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {loading ? (
@@ -409,7 +409,7 @@ const LandingPage = () => {
       {/* Footer */}
       <footer id="kontak" className="bg-gray-800 text-white py-12 md:py-16 px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             <div>
               <div className="mb-4">
                 <Image 
@@ -425,13 +425,6 @@ const LandingPage = () => {
               <p className="text-gray-300 mb-4">
                 Solusi perawatan kulit terbaik dengan produk berkualitas dan konsultasi profesional.
               </p>
-            </div>
-            
-            <div>              <h4 className="text-xl font-semibold mb-4">Kontak Info</h4>              <div className="space-y-2 text-gray-300">
-                <p><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /> DRW Skincare Pusat Banyuwangi</p>
-                <p><FontAwesomeIcon icon={faEnvelope} className="mr-2" /> info@drwskincare.com</p>
-                <p><FontAwesomeIcon icon={faPhone} className="mr-2" /> 0858-5255-5571</p>
-              </div>
             </div>
             
             <div>
@@ -452,7 +445,7 @@ const LandingPage = () => {
           </div>
           
           <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-300">
-            <p>&copy; 2025 DRW Skincare Banyuwangi. All rights reserved.</p>
+            <p>&copy; 2025 DRW Skincare. All rights reserved.</p>
           </div>
         </div>
       </footer>

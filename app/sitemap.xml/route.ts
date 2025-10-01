@@ -1,4 +1,8 @@
 import { NextResponse } from 'next/server';
+import { prisma } from '@/lib/db';
+
+// Force dynamic rendering for sitemap
+export const dynamic = 'force-dynamic'
 
 export async function GET() {
   const baseUrl = 'https://drwskincarebanyuwangi.vercel.app';
@@ -8,20 +12,27 @@ export async function GET() {
     '',
     '/product',
     '/treatment',
+    '/faq',
+    '/privacy-policy',
   ];
 
-  // Get product slugs dynamically
+  // Get product slugs dynamically from database
   const productSlugs: string[] = [];
   try {
-    const response = await fetch(`${baseUrl}/api/products`);
-    const result = await response.json();
-    if (result.success) {
-      result.data.forEach((product: any) => {
-        if (product.slug) {
-          productSlugs.push(`/product/${product.slug}`);
-        }
-      });
-    }
+    const products = await prisma.product.findMany({
+      where: {
+        isVisible: true
+      },
+      select: {
+        slug: true
+      }
+    });
+    
+    products.forEach((product) => {
+      if (product.slug && product.slug.trim() !== '') {
+        productSlugs.push(`/product/${product.slug}`);
+      }
+    });
   } catch (error) {
     console.error('Error fetching products for sitemap:', error);
   }
