@@ -53,7 +53,7 @@ export async function generateMetadata({
     };
   }
 
-  const productImageRelative = product.gambar || product.fotoProduk || '/og_product.png';
+  const productImageRelative = product.gambar || product.fotoProduk || '/logo_drwskincare_square.png';
   // Ensure absolute URL for Open Graph
   const productImage = productImageRelative.startsWith('http') 
     ? productImageRelative 
