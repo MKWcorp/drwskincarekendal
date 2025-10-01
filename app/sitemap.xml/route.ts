@@ -28,7 +28,7 @@ export async function GET() {
       }
     });
     
-    products.forEach((product) => {
+    products.forEach((product: { slug: string | null }) => {
       if (product.slug && product.slug.trim() !== '') {
         productSlugs.push(`/product/${product.slug}`);
       }
