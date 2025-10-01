@@ -1,9 +1,8 @@
 // Font Awesome configuration for Next.js
 import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
 
 // Tell Font Awesome to skip adding the CSS automatically 
-// since it's being imported above
+// We'll handle CSS in globals.css instead
 config.autoAddCss = false
 
 export default config
