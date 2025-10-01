@@ -9,11 +9,10 @@ export async function GET() {
       },
       include: {
         categories: true
-      },
-      orderBy: {
+      },      orderBy: {
         namaProduk: 'asc'
       },
-      take: 3
+      take: 8
     })
     
     return NextResponse.json({

@@ -6,6 +6,53 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faEnvelope, faPhone, faShoppingCart, faInfoCircle, faSpinner, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
+// Add custom CSS for additional animations
+const styles = `
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  .shimmer-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2s infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .shimmer-effect:hover::before {
+    opacity: 1;
+  }
+  
+  .pulse-glow {
+    box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7);
+    animation: pulse-glow 2s infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(236, 72, 153, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(236, 72, 153, 0);
+    }
+  }
+`;
+
 interface Product {
   id: string;
   namaProduk: string;
@@ -34,6 +81,8 @@ interface Product {
 
 const ProductPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [imageErrors, setImageErrors] = useState<Set<string>>(new Set());
@@ -42,6 +91,35 @@ const ProductPage = () => {
     fetchProducts();
   }, []);
 
+  useEffect(() => {
+    filterProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [products, searchQuery]);
+
+  const filterProducts = () => {
+    if (!searchQuery.trim()) {
+      setFilteredProducts(products);
+      return;
+    }
+
+    const query = searchQuery.toLowerCase().trim();
+    const filtered = products.filter(product => 
+      product.namaProduk.toLowerCase().includes(query) ||
+      (product.deskripsi && product.deskripsi.toLowerCase().includes(query)) ||
+      (product.categories && product.categories.name.toLowerCase().includes(query)) ||
+      (product.bpom && product.bpom.toLowerCase().includes(query))
+    );
+    setFilteredProducts(filtered);
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const clearSearch = () => {
+    setSearchQuery('');
+  };
+
   const fetchProducts = async () => {
     try {
       const response = await fetch('/api/products');
@@ -49,6 +127,7 @@ const ProductPage = () => {
       
       if (result.success) {
         setProducts(result.data);
+        setFilteredProducts(result.data);
       } else {
         setError(result.error || 'Failed to fetch products');
       }
@@ -75,12 +154,7 @@ const ProductPage = () => {
     window.open(whatsappUrl, '_blank');
   };
 
-  const handleProductDetail = (product: Product) => {
-    // For now, we'll show product details via WhatsApp
-    const message = `Halo kak aku mau tanya detail produk ${product.namaProduk}. Bisa dijelaskan lebih lengkap?`;
-    const whatsappUrl = `https://wa.me/6285852555571?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
-  };
+
 
   const handleImageError = (productId: string) => {
     setImageErrors(prev => new Set(Array.from(prev).concat(productId)));
@@ -153,8 +227,10 @@ const ProductPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
+    <>
+      <style dangerouslySetInnerHTML={{ __html: styles }} />
+      <div className="min-h-screen bg-gray-50">
+        {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center">
@@ -176,6 +252,9 @@ const ProductPage = () => {
             <Link href="/product" className="text-primary font-semibold">
               Produk
             </Link>
+            <Link href="/treatment" className="text-gray-700 hover:text-primary transition-colors">
+              Perawatan
+            </Link>
             <Link href="/#kontak" className="text-gray-700 hover:text-primary transition-colors">
               Kontak
             </Link>
@@ -195,16 +274,78 @@ const ProductPage = () => {
           <h1 className="text-2xl md:text-4xl font-bold text-gray-800 mb-3 md:mb-4">
             Produk DRW Skincare
           </h1>
-          <p className="text-base md:text-xl text-gray-600">
+          <p className="text-base md:text-xl text-gray-600 mb-6 md:mb-8">
             Temukan produk perawatan kulit terbaik untuk kebutuhan Anda
           </p>
+          
+          {/* Search Bar */}
+          <div className="max-w-md mx-auto relative">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Cari produk, kategori, atau BPOM..."
+                value={searchQuery}
+                onChange={handleSearchChange}
+                className="w-full px-4 py-3 pl-12 pr-12 rounded-xl border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none transition-all duration-300 bg-gray-50 focus:bg-white text-gray-700"
+              />
+              <svg 
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400"
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+              {searchQuery && (
+                <button
+                  onClick={clearSearch}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              )}
+            </div>
+          </div>
         </div>
       </section>
+
+      {/* Search Results Info */}
+      {searchQuery && (
+        <section className="py-4 px-4 md:px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <p className="text-blue-800 text-sm md:text-base">
+                {filteredProducts.length > 0 ? (
+                  <>
+                    Menampilkan <span className="font-semibold">{filteredProducts.length}</span> produk 
+                    untuk pencarian &quot;<span className="font-semibold">{searchQuery}</span>&quot;
+                  </>
+                ) : (
+                  <>
+                    Tidak ditemukan produk untuk pencarian &quot;<span className="font-semibold">{searchQuery}</span>&quot;
+                  </>
+                )}
+                <button 
+                  onClick={clearSearch}
+                  className="ml-2 text-blue-600 hover:text-blue-800 underline"
+                >
+                  Hapus pencarian
+                </button>
+              </p>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Products Grid */}
       <section className="py-8 md:py-12 px-4 md:px-6">
         <div className="max-w-6xl mx-auto">
-          {products.length === 0 ? (
+          {loading ? (
+            // Loading state will be handled earlier, but keeping this for safety
+            null
+          ) : products.length === 0 ? (
             <div className="text-center py-20">
               <div className="text-gray-500 text-xl mb-4">
                 <FontAwesomeIcon icon={faShoppingCart} className="text-4xl text-gray-400 mb-4 block" />
@@ -221,35 +362,58 @@ const ProductPage = () => {
                 Hubungi Kami
               </a>
             </div>
+          ) : filteredProducts.length === 0 && searchQuery ? (
+            // Empty search results
+            <div className="text-center py-20">
+              <div className="text-gray-500 text-xl mb-4">
+                <svg className="mx-auto h-20 w-20 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+                Produk tidak ditemukan
+              </div>
+              <p className="text-gray-400 mb-6">
+                Coba gunakan kata kunci yang berbeda atau hapus filter pencarian
+              </p>
+              <button 
+                onClick={clearSearch}
+                className="bg-primary text-white px-8 py-3 rounded-lg hover:bg-pink-600 transition-colors"
+              >
+                Tampilkan Semua Produk
+              </button>
+            </div>
           ) : (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-6">
-              {products.map((product) => (
-                <div 
+              {filteredProducts.map((product) => (
+                <Link 
+                  href={`/product/${product.slug}`}
                   key={product.id} 
-                  className="bg-white rounded-lg md:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primary/20"
+                  className="bg-white rounded-lg md:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary/30 group cursor-pointer transform hover:scale-[1.02] active:scale-[0.98] hover:-translate-y-1 shimmer-effect"
                 >
                   {/* Product Image */}
-                  <div className="relative h-32 md:h-48 bg-gray-100">
+                  <div className="relative h-32 md:h-48 bg-gray-100 overflow-hidden">
                     {product.gambar && !imageErrors.has(product.id) ? (
                       <Image
                         src={product.gambar}
                         alt={product.namaProduk}
                         fill
-                        className="object-cover"
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
                         onError={() => handleImageError(product.id)}
                       />
                     ) : (
-                      <div className="flex items-center justify-center h-full">
+                      <div className="flex items-center justify-center h-full group-hover:scale-110 transition-transform duration-500">
                         <div className="text-gray-400 text-center">
-                          <FontAwesomeIcon icon={faShoppingCart} className="text-4xl mb-2" />
-                          <div className="text-sm">Foto Produk</div>
+                          <FontAwesomeIcon icon={faShoppingCart} className="text-4xl mb-2 group-hover:text-primary transition-colors duration-300" />
+                          <div className="text-sm group-hover:text-primary transition-colors duration-300">Foto Produk</div>
                         </div>
                       </div>
                     )}
                     
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-all duration-500"></div>
+                    
                     {/* BPOM Badge */}
                     {product.bpom && (
-                      <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                      <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800 group-hover:bg-green-200 group-hover:scale-105 transition-all duration-300 shadow-sm">
                         BPOM: {product.bpom}
                       </div>
                     )}
@@ -259,48 +423,49 @@ const ProductPage = () => {
                   <div className="p-3 md:p-6">
                     {/* Category */}
                     {product.categories && (
-                      <div className="inline-block bg-primary/10 text-primary text-xs px-2 md:px-3 py-1 rounded-full mb-2 md:mb-3">
+                      <div className="inline-block bg-primary/10 group-hover:bg-primary/20 text-primary text-xs px-2 md:px-3 py-1 rounded-full mb-2 md:mb-3 transition-all duration-300 group-hover:scale-105">
                         {product.categories.name}
                       </div>
                     )}
                     
                     {/* Product Name */}
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-800 mb-2 line-clamp-2 min-h-[2.5rem] md:min-h-[3.5rem]">
+                    <h3 className="text-sm md:text-lg font-semibold text-gray-800 group-hover:text-primary mb-2 line-clamp-2 min-h-[2.5rem] md:min-h-[3.5rem] transition-colors duration-300">
                       {product.namaProduk}
                     </h3>
                     
                     {/* Description */}
                     {product.deskripsi && (
-                      <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2 md:line-clamp-3 min-h-[2.5rem] md:min-h-[4rem]">
+                      <p className="text-gray-600 group-hover:text-gray-700 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2 md:line-clamp-3 min-h-[2.5rem] md:min-h-[4rem] transition-colors duration-300">
                         {product.deskripsi}
                       </p>
                     )}
                     
                     {/* Price */}
-                    <div className="text-lg md:text-xl font-bold text-primary mb-3 md:mb-4">
-                      <span className="text-xs md:text-sm text-gray-500 font-normal">Harga: </span>
+                    <div className="text-lg md:text-xl font-bold text-primary group-hover:text-pink-600 mb-3 md:mb-4 transition-colors duration-300 group-hover:scale-105 transform">
+                      <span className="text-xs md:text-sm text-gray-500 font-normal group-hover:text-gray-600 transition-colors duration-300">Harga: </span>
                       {formatPrice(product.hargaUmum)}
                     </div>
                     
                     {/* Action Buttons */}
-                    <div className="flex gap-1 md:gap-2">
+                    <div className="flex gap-1 md:gap-2 group-hover:translate-y-0 translate-y-1 transition-transform duration-300">
                       <button
-                        onClick={() => handleWhatsAppOrder(product.namaProduk)}
-                        className="flex-1 bg-primary text-white py-2 md:py-3 rounded-lg hover:bg-pink-600 transition-colors font-semibold text-xs md:text-sm"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleWhatsAppOrder(product.namaProduk);
+                        }}
+                        className="flex-1 bg-primary text-white py-2 md:py-3 rounded-lg hover:bg-pink-600 active:bg-pink-700 transition-all duration-300 font-semibold text-xs md:text-sm transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
                       >
-                        <FontAwesomeIcon icon={faShoppingCart} className="mr-1" />
+                        <FontAwesomeIcon icon={faShoppingCart} className="mr-1 group-hover:animate-pulse" />
                         Beli
                       </button>
-                      <button
-                        onClick={() => handleProductDetail(product)}
-                        className="flex-1 bg-gray-100 text-gray-700 py-2 md:py-3 rounded-lg hover:bg-gray-200 transition-colors font-semibold text-xs md:text-sm"
-                      >
-                        <FontAwesomeIcon icon={faInfoCircle} className="mr-1" />
+                      <div className="flex-1 bg-gray-100 text-gray-700 py-2 md:py-3 rounded-lg hover:bg-gray-200 active:bg-gray-300 transition-all duration-300 font-semibold text-xs md:text-sm text-center transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg">
+                        <FontAwesomeIcon icon={faInfoCircle} className="mr-1 group-hover:animate-bounce" />
                         Detail
-                      </button>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           )}
@@ -349,7 +514,8 @@ const ProductPage = () => {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   );
 };
 
