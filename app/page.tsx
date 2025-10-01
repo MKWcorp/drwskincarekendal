@@ -146,6 +146,7 @@ const LandingPage = () => {
         </div>
         <nav className="hidden md:flex space-x-6">
           <Link href="/product" className="text-gray-700 hover:text-primary transition-colors">Produk</Link>
+          <Link href="/treatment" className="text-gray-700 hover:text-primary transition-colors">Perawatan</Link>
           <a href="#kontak" className="text-gray-700 hover:text-primary transition-colors">Kontak</a>
         </nav>
         <a 
