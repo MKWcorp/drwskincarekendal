@@ -472,10 +472,9 @@ const TreatmentPage = () => {
                         {/* Booking Button */}
                         <button
                           onClick={() => handleWhatsAppBooking(treatment.name, treatment.price)}
-                          className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 px-6 rounded-lg hover:from-green-600 hover:to-green-700 transition-all duration-300 font-semibold flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
+                          className="w-full bg-gradient-to-r from-primary to-pink-600 text-white py-3 px-6 rounded-lg hover:from-pink-600 hover:to-pink-700 transition-all duration-300 font-semibold flex items-center justify-center gap-2 transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
                         >
-                          <FontAwesomeIcon icon={faWhatsapp} className="text-lg" />
-                          Book via WhatsApp
+                          Booking Perawatan
                         </button>
                       </div>
                     </div>

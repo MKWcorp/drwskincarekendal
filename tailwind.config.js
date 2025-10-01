@@ -14,6 +14,9 @@ module.exports = {
       fontFamily: {
         sans: ['Arial', 'sans-serif'],
       },
+      animation: {
+        'ping-delay': 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite 0.2s',
+      },
     },
   },
   plugins: [],

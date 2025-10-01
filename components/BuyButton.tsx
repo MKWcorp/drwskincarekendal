@@ -21,7 +21,7 @@ export default function BuyButton({ productName, className = "" }: BuyButtonProp
     <button
       onClick={handleWhatsAppClick}
       className={`
-        bg-green-500 hover:bg-green-600 
+        bg-primary hover:bg-pink-600 
         text-white font-semibold py-3 px-6 rounded-lg
         flex items-center justify-center gap-2
         shadow-lg hover:shadow-xl 
@@ -29,10 +29,9 @@ export default function BuyButton({ productName, className = "" }: BuyButtonProp
         transform hover:scale-105
         ${className}
       `}
-      aria-label={`Beli ${productName} via WhatsApp`}
+      aria-label={`Beli ${productName}`}
     >
-      <FontAwesomeIcon icon={faWhatsapp} className="w-5 h-5" />
-      Beli via WhatsApp
+      Beli
     </button>
   )
 }
