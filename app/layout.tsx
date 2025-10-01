@@ -5,7 +5,13 @@ import FloatingWhatsApp from '../components/FloatingWhatsApp'
 
 const inter = Inter({ subsets: ['latin'] })
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export const metadata = {
+  metadataBase: new URL('https://drwskincarebanyuwangi.com'),
   title: 'DRW Skincare - Produk Kecantikan Skincare & Perawatan Kulit Terbaik',
   description: 'DRW Skincare menyediakan produk kecantikan skincare dan perawatan kulit profesional, facial, treatment anti aging, dan produk skincare berkualitas. Konsultasi gratis dengan dokter berpengalaman.',
   keywords: 'DRW Skincare, produk kecantikan skincare, perawatan kulit, facial, skincare, treatment wajah, anti aging, jerawat, whitening, dokter kulit, kosmetik, kecantikan, perawatan wajah',
@@ -13,7 +19,6 @@ export const metadata = {
   creator: 'DRW Skincare',
   publisher: 'DRW Skincare',
   robots: 'index, follow',
-  viewport: 'width=device-width, initial-scale=1',
   icons: {
     icon: '/favicon.ico',
     apple: '/logo_drwskincare_square.png',
@@ -27,10 +32,10 @@ export const metadata = {
     description: 'DRW Skincare menyediakan produk kecantikan skincare dan perawatan kulit profesional, facial, treatment anti aging, dan produk skincare berkualitas.',
     images: [
       {
-        url: '/logo_drwskincare.png',
+        url: '/logo_drwskincare_square.png',
         width: 1200,
-        height: 630,
-        alt: 'DRW Skincare Banyuwangi - Klinik Kecantikan Terbaik',
+        height: 1200,
+        alt: 'DRW Skincare - Produk Kecantikan Skincare & Perawatan Kulit Terbaik',
       },
     ],
   },
@@ -38,7 +43,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'DRW Skincare - Produk Kecantikan Skincare Terbaik',
     description: 'Produk kecantikan skincare dan perawatan kulit profesional dengan dokter berpengalaman dan produk berkualitas.',
-    images: ['/logo_drwskincare.png'],
+    images: ['/logo_drwskincare_square.png'],
   },
   alternates: {
     canonical: 'https://drwskincarebanyuwangi.com',
@@ -62,8 +67,8 @@ export default function RootLayout({
     "name": "DRW Skincare",
     "description": "Produk kecantikan skincare dan perawatan kulit profesional dengan dokter berpengalaman",
     "url": "https://drwskincarebanyuwangi.com",
-    "logo": "https://drwskincarebanyuwangi.com/logo_drwskincare.png",
-    "image": "https://drwskincarebanyuwangi.com/logo_drwskincare.png",
+    "logo": "https://drwskincarebanyuwangi.com/logo_drwskincare_square.png",
+    "image": "https://drwskincarebanyuwangi.com/logo_drwskincare_square.png",
     "telephone": "+62-858-5255-5571",
     "email": "info@drwskincare.com",
     "address": {

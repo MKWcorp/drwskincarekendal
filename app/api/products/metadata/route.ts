@@ -33,7 +33,7 @@ export async function GET(request: NextRequest) {
     }
 
     // Generate metadata for the product
-    const productImage = product.gambar || product.fotoProduk || '/logo_drwskincare.png';
+    const productImage = product.gambar || product.fotoProduk || '/logo_drwskincare_square.png';
     const productPrice = product.hargaUmum 
       ? new Intl.NumberFormat('id-ID', {
           style: 'currency',

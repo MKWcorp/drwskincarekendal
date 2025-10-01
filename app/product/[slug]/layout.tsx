@@ -1,5 +1,4 @@
 import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
 
 interface Product {
   id: string;
@@ -14,9 +13,13 @@ interface Product {
 
 async function fetchProduct(slug: string): Promise<Product | null> {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+    // Use production URL for build time, localhost for development
+    const baseUrl = process.env.NODE_ENV === 'production' 
+      ? 'https://drwskincarebanyuwangi.com' 
+      : 'http://localhost:3000';
+      
     const response = await fetch(`${baseUrl}/api/products?slug=${slug}`, {
-      cache: 'no-store'
+      next: { revalidate: 3600 } // Cache for 1 hour
     });
     
     if (!response.ok) {
@@ -31,7 +34,7 @@ async function fetchProduct(slug: string): Promise<Product | null> {
     
     return null;
   } catch (error) {
-    console.error('Error fetching product:', error);
+    console.error('Error fetching product for metadata:', error);
     return null;
   }
 }
@@ -50,7 +53,12 @@ export async function generateMetadata({
     };
   }
 
-  const productImage = product.gambar || product.fotoProduk || '/logo_drwskincare.png';
+  const productImageRelative = product.gambar || product.fotoProduk || '/logo_drwskincare_square.png';
+  // Ensure absolute URL for Open Graph
+  const productImage = productImageRelative.startsWith('http') 
+    ? productImageRelative 
+    : `https://drwskincarebanyuwangi.com${productImageRelative}`;
+    
   const productPrice = product.hargaUmum 
     ? new Intl.NumberFormat('id-ID', {
         style: 'currency',
@@ -68,6 +76,7 @@ export async function generateMetadata({
     title,
     description,
     keywords: `${product.namaProduk}, skincare, DRW Skincare, produk kecantikan, perawatan kulit, ${product.bpom ? `BPOM ${product.bpom}` : ''}`,
+    metadataBase: new URL('https://drwskincarebanyuwangi.com'),
     openGraph: {
       title,
       description,
@@ -93,6 +102,36 @@ export async function generateMetadata({
       canonical: `https://drwskincarebanyuwangi.com/product/${params.slug}`,
     },
   };
+}
+
+// Generate static params for better performance
+export async function generateStaticParams() {
+  try {
+    const baseUrl = process.env.NODE_ENV === 'production' 
+      ? 'https://drwskincarebanyuwangi.com' 
+      : 'http://localhost:3000';
+      
+    const response = await fetch(`${baseUrl}/api/products`, {
+      next: { revalidate: 3600 }
+    });
+    
+    if (!response.ok) {
+      return [];
+    }
+    
+    const result = await response.json();
+    
+    if (result.success) {
+      return result.data.map((product: Product) => ({
+        slug: product.slug,
+      }));
+    }
+    
+    return [];
+  } catch (error) {
+    console.error('Error generating static params:', error);
+    return [];
+  }
 }
 
 export default function ProductLayout({

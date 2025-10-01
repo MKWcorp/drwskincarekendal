@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Treatment Kecantikan DRW Skincare - Facial Professional',
     description: 'Layanan treatment kecantikan profesional dengan teknologi terdepan dan dokter berpengalaman.',
-    images: ['/logo_drwskincare.png'],
+    images: [
+      {
+        url: '/logo_drwskincare_square.png',
+        width: 1200,
+        height: 1200,
+        alt: 'DRW Skincare - Treatment Kecantikan Professional',
+      },
+    ],
   },
 }

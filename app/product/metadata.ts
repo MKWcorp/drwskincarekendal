@@ -9,9 +9,9 @@ export const metadata: Metadata = {
     description: 'Koleksi lengkap produk skincare berkualitas dengan formula dokter berpengalaman. Dapatkan kulit sehat dan glowing dengan produk terpercaya.',
     images: [
       {
-        url: '/logo_drwskincare.png',
+        url: '/logo_drwskincare_square.png',
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: 'DRW Skincare - Produk Skincare Terbaik',
       },
     ],
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Produk Skincare Terbaik - DRW Skincare',
     description: 'Koleksi lengkap produk skincare berkualitas dengan formula dokter berpengalaman.',
-    images: ['/logo_drwskincare.png'],
+    images: ['/logo_drwskincare_square.png'],
   },
   alternates: {
     canonical: 'https://drwskincarebanyuwangi.com/product',
