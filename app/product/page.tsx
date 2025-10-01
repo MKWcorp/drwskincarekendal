@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faEnvelope, faPhone, faShoppingCart, faInfoCircle, faSpinner, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
@@ -457,29 +458,7 @@ const ProductPage = () => {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8 md:py-12 px-4 md:px-6">
-        <div className="max-w-6xl mx-auto text-center">
-          <div className="mb-3 md:mb-4 flex justify-center">
-            <Image 
-              src="/logo_drwskincare.png" 
-              alt="DRW Skincare Logo" 
-              width={300}
-              height={100}
-              className="h-12 md:h-16 w-auto"
-              quality={100}
-              unoptimized
-            />
-          </div>
-          <div className="space-y-1 md:space-y-2 text-gray-300 text-sm md:text-base">
-            <p><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /> DRW Skincare Pusat</p>
-            <p><FontAwesomeIcon icon={faEnvelope} className="mr-2" /> info@drwskincare.com</p>
-            <p><FontAwesomeIcon icon={faPhone} className="mr-2" /> 0858-5255-5571</p>
-          </div>
-          <div className="border-t border-gray-700 mt-6 md:mt-8 pt-6 md:pt-8 text-gray-400 text-xs md:text-sm">
-            <p>&copy; 2025 DRW Skincare. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
       </div>
     </>
   );

@@ -1,5 +1,6 @@
 import { Metadata } from 'next'
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 
 export const metadata: Metadata = {
   title: 'FAQ - Pertanyaan Seputar DRW Skincare',
@@ -86,6 +87,9 @@ export default function FAQPage() {
           </a>
         </div>
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   )
 }

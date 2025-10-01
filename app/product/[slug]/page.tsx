@@ -5,6 +5,7 @@ import Image from "next/image";
 import Head from "next/head";
 import BuyButton from "@/components/BuyButton";
 import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -287,6 +288,9 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
           </div>
         )}
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
     </>
   );

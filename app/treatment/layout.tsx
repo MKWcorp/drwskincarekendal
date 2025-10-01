@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Perawatan Kulit & Kecantikan DRW Skincare',
     description: 'Pusat Perawatan Kulit & Kecantikan terpercaya dengan treatment profesional.',
-    images: ['/og_treatment.png'],
+    images: ['/logo_drwskincare_square.png'],
   },
   alternates: {
     canonical: 'https://drwskincarebanyuwangi.com/treatment',
