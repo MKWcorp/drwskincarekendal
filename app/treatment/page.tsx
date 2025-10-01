@@ -20,6 +20,8 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 interface Treatment {
   name: string;
   price: string;
+  benefits: string;
+  description: string;
 }
 
 interface TreatmentCategory {
@@ -28,42 +30,192 @@ interface TreatmentCategory {
 
 const treatmentData: TreatmentCategory = {
   "Facial Basic": [
-    { "name": "Facial Basic / Pelajar", "price": "50k" },
-    { "name": "Facial Whitening", "price": "65k" },
-    { "name": "Facial Acne", "price": "65k" },
-    { "name": "Facial PDT (Omega Light)", "price": "80k" },
-    { "name": "Masker Peel Off", "price": "25k" }
+    { 
+      "name": "Facial Basic / Pelajar", 
+      "price": "Rp 50.000", 
+      "benefits": "Membersihkan wajah dari kotoran dan minyak berlebih.",
+      "description": "Perawatan dasar untuk pelajar dengan pembersihan kulit ringan agar wajah tetap segar dan sehat." 
+    },
+    { 
+      "name": "Facial Whitening", 
+      "price": "Rp 65.000", 
+      "benefits": "Mencerahkan kulit kusam dan meratakan warna kulit.",
+      "description": "Mengandung bahan pencerah untuk membuat wajah lebih glowing dan cerah alami." 
+    },
+    { 
+      "name": "Facial Acne", 
+      "price": "Rp 65.000", 
+      "benefits": "Mengurangi jerawat aktif dan mengontrol minyak.",
+      "description": "Facial khusus untuk kulit berjerawat dengan ekstraksi komedo dan soothing mask." 
+    },
+    { 
+      "name": "Facial PDT (Omega Light)", 
+      "price": "Rp 80.000", 
+      "benefits": "Membantu regenerasi kulit dan mengurangi peradangan.",
+      "description": "Menggunakan terapi cahaya LED untuk jerawat, kulit kusam, dan tanda penuaan." 
+    },
+    { 
+      "name": "Masker Peel Off", 
+      "price": "Rp 25.000", 
+      "benefits": "Menyegarkan wajah, mengangkat sel kulit mati.",
+      "description": "Masker praktis untuk mengencangkan kulit dan membersihkan pori-pori." 
+    }
   ],
   "Facial Advance": [
-    { "name": "Facial Detox", "price": "120k" },
-    { "name": "Facial Mikrodermabrasi", "price": "130k" },
-    { "name": "Facial RF", "price": "130k" },
-    { "name": "Facial Chemical Peeling", "price": "130k" },
-    { "name": "Facial HIV U Max", "price": "150k" },
-    { "name": "Facial Hidrapeel", "price": "150k" },
-    { "name": "Facial Black Doll", "price": "180k" },
-    { "name": "Facial Acne Serum", "price": "140k" },
-    { "name": "Facial DNA Salmon", "price": "150k" }
+    { 
+      "name": "Facial Detox", 
+      "price": "Rp 120.000", 
+      "benefits": "Membersihkan toksin dan polusi dari kulit.",
+      "description": "Cocok untuk kulit yang sering terpapar polusi, membuat wajah lebih segar." 
+    },
+    { 
+      "name": "Facial Mikrodermabrasi", 
+      "price": "Rp 130.000", 
+      "benefits": "Menghaluskan kulit dan mengurangi noda hitam.",
+      "description": "Teknik eksfoliasi dengan diamond tip untuk meratakan tekstur kulit." 
+    },
+    { 
+      "name": "Facial RF", 
+      "price": "Rp 130.000", 
+      "benefits": "Mengencangkan kulit dan merangsang kolagen.",
+      "description": "Menggunakan teknologi radio frekuensi untuk mengurangi tanda penuaan." 
+    },
+    { 
+      "name": "Facial Chemical Peeling", 
+      "price": "Rp 130.000", 
+      "benefits": "Mengangkat sel kulit mati secara mendalam.",
+      "description": "Menggunakan cairan peeling untuk mencerahkan kulit kusam dan mengurangi bekas jerawat." 
+    },
+    { 
+      "name": "Facial HIV U Max", 
+      "price": "Rp 150.000", 
+      "benefits": "Menutrisi kulit dan meningkatkan elastisitas.",
+      "description": "Perawatan advance dengan teknologi modern untuk kulit lebih sehat." 
+    },
+    { 
+      "name": "Facial Hidrapeel", 
+      "price": "Rp 150.000", 
+      "benefits": "Menghidrasi kulit kering dan melembutkan wajah.",
+      "description": "Teknologi hydra-dermabrasion untuk melembapkan kulit secara intensif." 
+    },
+    { 
+      "name": "Facial Black Doll", 
+      "price": "Rp 180.000", 
+      "benefits": "Mengurangi pori besar dan mencerahkan kulit.",
+      "description": "Menggunakan laser karbon aktif untuk membersihkan kulit secara mendalam." 
+    },
+    { 
+      "name": "Facial Acne Serum", 
+      "price": "Rp 140.000", 
+      "benefits": "Mengatasi jerawat dengan serum khusus.",
+      "description": "Perawatan jerawat dengan kombinasi facial dan aplikasi serum aktif." 
+    },
+    { 
+      "name": "Facial DNA Salmon", 
+      "price": "Rp 150.000", 
+      "benefits": "Meremajakan kulit dan memperbaiki skin barrier.",
+      "description": "Facial premium dengan kandungan DNA salmon untuk anti-aging dan glowing." 
+    }
   ],
   "Special Treatments": [
-    { "name": "Counter / Buang Kutil", "price": "Mulai 110k" },
-    { "name": "Dermapen", "price": "150k" },
-    { "name": "BB Glow", "price": "175k" },
-    { "name": "Tanam Benang Collagen", "price": "150k" },
-    { "name": "Magnetik Modmask", "price": "120k" },
-    { "name": "IPL Rejuve", "price": "150k" },
-    { "name": "Lash Lift", "price": "75k" },
-    { "name": "Bekam Aesthetic + Acupuncture", "price": "175k" },
-    { "name": "Facial + Bekam Aesthetic", "price": "100k" },
-    { "name": "Facial Micro Detox", "price": "170k" },
-    { "name": "Facial Micro/Detox RF", "price": "200k" },
-    { "name": "Laser Ketiak", "price": "150k" },
-    { "name": "Paket Laser + IPL Ketiak", "price": "250k" }
+    { 
+      "name": "Counter / Buang Kutil", 
+      "price": "Rp 110.000", 
+      "benefits": "Menghilangkan kutil dengan aman.",
+      "description": "Tindakan medis ringan untuk mengangkat kutil tanpa bekas berlebih." 
+    },
+    { 
+      "name": "Dermapen", 
+      "price": "Rp 150.000", 
+      "benefits": "Mengurangi bekas jerawat dan merangsang kolagen.",
+      "description": "Microneedling dengan dermapen untuk peremajaan kulit." 
+    },
+    { 
+      "name": "BB Glow", 
+      "price": "Rp 175.000", 
+      "benefits": "Kulit tampak cerah seperti memakai BB cream.",
+      "description": "Teknik semi-permanen untuk mencerahkan kulit secara natural." 
+    },
+    { 
+      "name": "Tanam Benang Collagen", 
+      "price": "Rp 150.000", 
+      "benefits": "Mengencangkan kulit wajah.",
+      "description": "Perawatan estetika dengan benang kolagen untuk lifting wajah." 
+    },
+    { 
+      "name": "Magnetik Modmask", 
+      "price": "Rp 120.000", 
+      "benefits": "Membersihkan pori-pori dalam.",
+      "description": "Masker unik dengan teknologi magnet untuk detox kulit." 
+    },
+    { 
+      "name": "IPL Rejuve", 
+      "price": "Rp 150.000", 
+      "benefits": "Mengurangi pigmentasi dan membuat kulit lebih cerah.",
+      "description": "Perawatan dengan cahaya intens untuk rejuvenasi kulit." 
+    },
+    { 
+      "name": "Lash Lift", 
+      "price": "Rp 75.000", 
+      "benefits": "Membuat bulu mata lentik alami.",
+      "description": "Perawatan bulu mata agar tampak lebih tebal dan lentik tanpa extension." 
+    },
+    { 
+      "name": "Bekam Aesthetic + Acupuncture", 
+      "price": "Rp 175.000", 
+      "benefits": "Melancarkan peredaran darah dan relaksasi tubuh.",
+      "description": "Kombinasi bekam modern dan akupuntur untuk kesehatan dan kecantikan." 
+    },
+    { 
+      "name": "Facial + Bekam Aesthetic", 
+      "price": "Rp 100.000", 
+      "benefits": "Membersihkan wajah sekaligus melancarkan peredaran darah.",
+      "description": "Perawatan unik yang menggabungkan facial dengan bekam modern." 
+    },
+    { 
+      "name": "Facial Micro Detox", 
+      "price": "Rp 170.000", 
+      "benefits": "Detoksifikasi kulit mendalam.",
+      "description": "Gabungan teknologi modern untuk mengeluarkan toksin dari kulit." 
+    },
+    { 
+      "name": "Facial Micro/Detox RF", 
+      "price": "Rp 200.000", 
+      "benefits": "Mengencangkan kulit sekaligus detoks.",
+      "description": "Kombinasi radio frekuensi dan detox facial untuk hasil maksimal." 
+    },
+    { 
+      "name": "Laser Ketiak", 
+      "price": "Rp 150.000", 
+      "benefits": "Mengurangi bulu ketiak secara permanen.",
+      "description": "Perawatan laser khusus area ketiak untuk kulit lebih bersih." 
+    },
+    { 
+      "name": "Paket Laser + IPL Ketiak", 
+      "price": "Rp 250.000", 
+      "benefits": "Maksimal hasil bebas bulu ketiak.",
+      "description": "Kombinasi laser dan IPL untuk perawatan ketiak." 
+    }
   ],
   "Body Slimming": [
-    { "name": "Body Slimming Lengan", "price": "150k" },
-    { "name": "Body Slimming Perut", "price": "200k" },
-    { "name": "Body Slimming Paha", "price": "200k" }
+    { 
+      "name": "Body Slimming Lengan", 
+      "price": "Rp 150.000", 
+      "benefits": "Mengencangkan dan mengecilkan lengan.",
+      "description": "Perawatan body contouring khusus area lengan." 
+    },
+    { 
+      "name": "Body Slimming Perut", 
+      "price": "Rp 200.000", 
+      "benefits": "Mengurangi lemak perut.",
+      "description": "Treatment pembakaran lemak untuk perut lebih rata." 
+    },
+    { 
+      "name": "Body Slimming Paha", 
+      "price": "Rp 200.000", 
+      "benefits": "Mengecilkan lingkar paha.",
+      "description": "Perawatan body slimming untuk paha lebih ramping." 
+    }
   ]
 };
 
@@ -280,19 +432,41 @@ const TreatmentPage = () => {
                       className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-primary/20 group overflow-hidden"
                     >
                       <div className="p-6">
-                        {/* Treatment Name */}
-                        <h3 className="text-lg font-semibold text-gray-800 mb-3 group-hover:text-primary transition-colors duration-300">
-                          {treatment.name}
-                        </h3>
-                        
-                        {/* Price */}
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="text-2xl font-bold text-primary">
-                            Rp {treatment.price}
-                          </div>
-                          <div className={`px-3 py-1 rounded-full text-xs font-semibold ${getCategoryColor(category)}`}>
+                        {/* Treatment Name & Category */}
+                        <div className="flex items-start justify-between mb-3">
+                          <h3 className="text-lg font-semibold text-gray-800 group-hover:text-primary transition-colors duration-300 flex-1 pr-2">
+                            {treatment.name}
+                          </h3>
+                          <div className={`px-3 py-1 rounded-full text-xs font-semibold ${getCategoryColor(category)} shrink-0`}>
                             {category}
                           </div>
+                        </div>
+                        
+                        {/* Price */}
+                        <div className="text-2xl font-bold text-primary mb-3">
+                          {treatment.price}
+                        </div>
+                        
+                        {/* Benefits */}
+                        <div className="mb-3">
+                          <div className="flex items-center mb-2">
+                            <FontAwesomeIcon icon={faStar} className="text-yellow-500 mr-2 text-sm" />
+                            <span className="text-sm font-semibold text-gray-700">Manfaat:</span>
+                          </div>
+                          <p className="text-sm text-gray-600 leading-relaxed">
+                            {treatment.benefits}
+                          </p>
+                        </div>
+                        
+                        {/* Description */}
+                        <div className="mb-4">
+                          <div className="flex items-center mb-2">
+                            <FontAwesomeIcon icon={faGem} className="text-primary mr-2 text-sm" />
+                            <span className="text-sm font-semibold text-gray-700">Deskripsi:</span>
+                          </div>
+                          <p className="text-sm text-gray-600 leading-relaxed">
+                            {treatment.description}
+                          </p>
                         </div>
                         
                         {/* Booking Button */}
