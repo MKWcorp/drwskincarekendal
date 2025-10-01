@@ -6,6 +6,53 @@ import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faEnvelope, faPhone, faShoppingCart, faInfoCircle, faSpinner, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
+// Add custom CSS for additional animations
+const styles = `
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  
+  .shimmer-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .shimmer-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    animation: shimmer 2s infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .shimmer-effect:hover::before {
+    opacity: 1;
+  }
+  
+  .pulse-glow {
+    box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7);
+    animation: pulse-glow 2s infinite;
+  }
+  
+  @keyframes pulse-glow {
+    0% {
+      box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(236, 72, 153, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(236, 72, 153, 0);
+    }
+  }
+`;
+
 interface Product {
   id: string;
   namaProduk: string;
@@ -148,8 +195,10 @@ const ProductPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
+    <>
+      <style dangerouslySetInnerHTML={{ __html: styles }} />
+      <div className="min-h-screen bg-gray-50">
+        {/* Header */}
       <header className="bg-white shadow-sm sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center">
@@ -222,30 +271,33 @@ const ProductPage = () => {
                 <Link 
                   href={`/product/${product.slug}`}
                   key={product.id} 
-                  className="bg-white rounded-lg md:rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-primary/20 group cursor-pointer"
+                  className="bg-white rounded-lg md:rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:border-primary/30 group cursor-pointer transform hover:scale-[1.02] active:scale-[0.98] hover:-translate-y-1 shimmer-effect"
                 >
                   {/* Product Image */}
-                  <div className="relative h-32 md:h-48 bg-gray-100">
+                  <div className="relative h-32 md:h-48 bg-gray-100 overflow-hidden">
                     {product.gambar && !imageErrors.has(product.id) ? (
                       <Image
                         src={product.gambar}
                         alt={product.namaProduk}
                         fill
-                        className="object-cover"
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
                         onError={() => handleImageError(product.id)}
                       />
                     ) : (
-                      <div className="flex items-center justify-center h-full">
+                      <div className="flex items-center justify-center h-full group-hover:scale-110 transition-transform duration-500">
                         <div className="text-gray-400 text-center">
-                          <FontAwesomeIcon icon={faShoppingCart} className="text-4xl mb-2" />
-                          <div className="text-sm">Foto Produk</div>
+                          <FontAwesomeIcon icon={faShoppingCart} className="text-4xl mb-2 group-hover:text-primary transition-colors duration-300" />
+                          <div className="text-sm group-hover:text-primary transition-colors duration-300">Foto Produk</div>
                         </div>
                       </div>
                     )}
                     
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/10 transition-all duration-500"></div>
+                    
                     {/* BPOM Badge */}
                     {product.bpom && (
-                      <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800">
+                      <div className="absolute top-3 right-3 px-2 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-800 group-hover:bg-green-200 group-hover:scale-105 transition-all duration-300 shadow-sm">
                         BPOM: {product.bpom}
                       </div>
                     )}
@@ -255,44 +307,44 @@ const ProductPage = () => {
                   <div className="p-3 md:p-6">
                     {/* Category */}
                     {product.categories && (
-                      <div className="inline-block bg-primary/10 text-primary text-xs px-2 md:px-3 py-1 rounded-full mb-2 md:mb-3">
+                      <div className="inline-block bg-primary/10 group-hover:bg-primary/20 text-primary text-xs px-2 md:px-3 py-1 rounded-full mb-2 md:mb-3 transition-all duration-300 group-hover:scale-105">
                         {product.categories.name}
                       </div>
                     )}
                     
                     {/* Product Name */}
-                    <h3 className="text-sm md:text-lg font-semibold text-gray-800 mb-2 line-clamp-2 min-h-[2.5rem] md:min-h-[3.5rem]">
+                    <h3 className="text-sm md:text-lg font-semibold text-gray-800 group-hover:text-primary mb-2 line-clamp-2 min-h-[2.5rem] md:min-h-[3.5rem] transition-colors duration-300">
                       {product.namaProduk}
                     </h3>
                     
                     {/* Description */}
                     {product.deskripsi && (
-                      <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2 md:line-clamp-3 min-h-[2.5rem] md:min-h-[4rem]">
+                      <p className="text-gray-600 group-hover:text-gray-700 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2 md:line-clamp-3 min-h-[2.5rem] md:min-h-[4rem] transition-colors duration-300">
                         {product.deskripsi}
                       </p>
                     )}
                     
                     {/* Price */}
-                    <div className="text-lg md:text-xl font-bold text-primary mb-3 md:mb-4">
-                      <span className="text-xs md:text-sm text-gray-500 font-normal">Harga: </span>
+                    <div className="text-lg md:text-xl font-bold text-primary group-hover:text-pink-600 mb-3 md:mb-4 transition-colors duration-300 group-hover:scale-105 transform">
+                      <span className="text-xs md:text-sm text-gray-500 font-normal group-hover:text-gray-600 transition-colors duration-300">Harga: </span>
                       {formatPrice(product.hargaUmum)}
                     </div>
                     
                     {/* Action Buttons */}
-                    <div className="flex gap-1 md:gap-2">
+                    <div className="flex gap-1 md:gap-2 group-hover:translate-y-0 translate-y-1 transition-transform duration-300">
                       <button
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
                           handleWhatsAppOrder(product.namaProduk);
                         }}
-                        className="flex-1 bg-primary text-white py-2 md:py-3 rounded-lg hover:bg-pink-600 transition-colors font-semibold text-xs md:text-sm"
+                        className="flex-1 bg-primary text-white py-2 md:py-3 rounded-lg hover:bg-pink-600 active:bg-pink-700 transition-all duration-300 font-semibold text-xs md:text-sm transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg"
                       >
-                        <FontAwesomeIcon icon={faShoppingCart} className="mr-1" />
+                        <FontAwesomeIcon icon={faShoppingCart} className="mr-1 group-hover:animate-pulse" />
                         Beli
                       </button>
-                      <div className="flex-1 bg-gray-100 text-gray-700 py-2 md:py-3 rounded-lg hover:bg-gray-200 transition-colors font-semibold text-xs md:text-sm text-center">
-                        <FontAwesomeIcon icon={faInfoCircle} className="mr-1" />
+                      <div className="flex-1 bg-gray-100 text-gray-700 py-2 md:py-3 rounded-lg hover:bg-gray-200 active:bg-gray-300 transition-all duration-300 font-semibold text-xs md:text-sm text-center transform hover:scale-105 active:scale-95 shadow-md hover:shadow-lg">
+                        <FontAwesomeIcon icon={faInfoCircle} className="mr-1 group-hover:animate-bounce" />
                         Detail
                       </div>
                     </div>
@@ -346,7 +398,8 @@ const ProductPage = () => {
           </div>
         </div>
       </footer>
-    </div>
+      </div>
+    </>
   );
 };
 
