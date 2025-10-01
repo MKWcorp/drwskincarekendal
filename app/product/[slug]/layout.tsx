@@ -53,7 +53,7 @@ export async function generateMetadata({
     };
   }
 
-  const productImageRelative = product.gambar || product.fotoProduk || '/logo_drwskincare_square.png';
+  const productImageRelative = product.gambar || product.fotoProduk || '/og_product.png';
   // Ensure absolute URL for Open Graph
   const productImage = productImageRelative.startsWith('http') 
     ? productImageRelative 
@@ -67,15 +67,15 @@ export async function generateMetadata({
       }).format(product.hargaUmum)
     : 'Hubungi Kami';
 
-  const title = `${product.namaProduk} - ${productPrice} | DRW Skincare`;
+  const title = `${product.namaProduk} - ${productPrice} | Produk Kecantikan Skincare DRW Skincare`;
   const description = product.deskripsi 
-    ? `${product.deskripsi} - Produk skincare berkualitas dari DRW Skincare dengan harga ${productPrice}. ${product.bpom ? `BPOM: ${product.bpom}` : ''}`
-    : `${product.namaProduk} - Produk skincare berkualitas dari DRW Skincare dengan harga ${productPrice}. Konsultasi gratis dengan dokter berpengalaman.`;
+    ? `${product.deskripsi} - Produk Kecantikan Skincare DRW Skincare dengan formula dokter, harga ${productPrice}. ${product.bpom ? `BPOM: ${product.bpom}` : ''} Produk skincare profesional untuk hasil optimal.`
+    : `${product.namaProduk} - Produk Kecantikan Skincare DRW Skincare dengan formula dokter, harga ${productPrice}. Produk skincare profesional dengan kualitas terjamin dan hasil optimal.`;
 
   return {
     title,
     description,
-    keywords: `${product.namaProduk}, skincare, DRW Skincare, produk kecantikan, perawatan kulit, ${product.bpom ? `BPOM ${product.bpom}` : ''}`,
+    keywords: `${product.namaProduk}, produk kecantikan skincare, DRW skincare banyuwangi, produk skincare dokter, produk kecantikan profesional, skincare BPOM, perawatan kulit, ${product.bpom ? `BPOM ${product.bpom}` : ''}`,
     metadataBase: new URL('https://drwskincarebanyuwangi.com'),
     openGraph: {
       title,

@@ -1,29 +1,30 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Produk Skincare Terbaik - DRW Skincare',
-  description: 'Temukan koleksi lengkap produk skincare berkualitas dari DRW Skincare. Facial serum, moisturizer, cleanser, dan treatment khusus dengan formula dokter berpengalaman.',
-  keywords: 'produk skincare, DRW Skincare, serum wajah, moisturizer, cleanser, facial serum, perawatan kulit, kosmetik BPOM, produk dokter',
+  title: 'Produk Kecantikan & Skincare DRW Skincare - Produk Dokter Terpercaya',
+  description: 'Koleksi lengkap Produk Kecantikan & Skincare DRW Skincare dengan formula dokter. Serum anti aging, moisturizer, cleanser, facial cream, whitening serum, acne cream dan produk skincare profesional BPOM untuk semua jenis kulit.',
+  keywords: 'produk kecantikan DRW skincare, skincare DRW banyuwangi, produk skincare dokter, serum anti aging, whitening serum, acne cream, facial moisturizer, cleanser wajah, produk kecantikan BPOM, skincare profesional, cosmeceutical, produk dokter kulit',
   openGraph: {
-    title: 'Produk Skincare Terbaik - DRW Skincare',
-    description: 'Koleksi lengkap produk skincare berkualitas dengan formula dokter berpengalaman. Dapatkan kulit sehat dan glowing dengan produk terpercaya.',
+    title: 'Produk Kecantikan & Skincare DRW Skincare - Formula Dokter Terpercaya',
+    description: 'Koleksi lengkap Produk Kecantikan & Skincare DRW Skincare dengan formula dokter berpengalaman. Produk skincare profesional BPOM untuk hasil kulit optimal dan aman.',
     images: [
       {
-        url: '/logo_drwskincare_square.png',
+        url: '/og_product.png',
         width: 1200,
-        height: 1200,
-        alt: 'DRW Skincare - Produk Skincare Terbaik',
+        height: 630,
+        alt: 'DRW Skincare - Produk Kecantikan & Skincare Formula Dokter',
       },
     ],
     type: 'website',
-    siteName: 'DRW Skincare',
+    siteName: 'DRW Skincare Banyuwangi',
     url: 'https://drwskincarebanyuwangi.com/product',
+    locale: 'id_ID',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Produk Skincare Terbaik - DRW Skincare',
-    description: 'Koleksi lengkap produk skincare berkualitas dengan formula dokter berpengalaman.',
-    images: ['/logo_drwskincare_square.png'],
+    title: 'Produk Kecantikan & Skincare DRW Skincare',
+    description: 'Koleksi lengkap Produk Kecantikan & Skincare dengan formula dokter berpengalaman.',
+    images: ['/og_product.png'],
   },
   alternates: {
     canonical: 'https://drwskincarebanyuwangi.com/product',

@@ -12,9 +12,9 @@ export const viewport = {
 
 export const metadata = {
   metadataBase: new URL('https://drwskincarebanyuwangi.com'),
-  title: 'DRW Skincare - Produk Kecantikan Skincare & Perawatan Kulit Terbaik',
-  description: 'DRW Skincare menyediakan produk kecantikan skincare dan perawatan kulit profesional, facial, treatment anti aging, dan produk skincare berkualitas. Konsultasi gratis dengan dokter berpengalaman.',
-  keywords: 'DRW Skincare, produk kecantikan skincare, perawatan kulit, facial, skincare, treatment wajah, anti aging, jerawat, whitening, dokter kulit, kosmetik, kecantikan, perawatan wajah',
+  title: 'DRW Skincare Banyuwangi - Produk Kecantikan Skincare & Perawatan Kulit Terbaik',
+  description: 'DRW Skincare Banyuwangi - Pusat kecantikan dan perawatan kulit terpercaya di Banyuwangi. Menyediakan produk skincare berkualitas, treatment profesional, dan konsultasi dengan dokter berpengalaman. Lokasi strategis dan pelayanan terbaik.',
+  keywords: 'DRW Skincare Banyuwangi, klinik kecantikan banyuwangi, produk skincare banyuwangi, perawatan kulit banyuwangi, dokter kulit banyuwangi, facial banyuwangi, treatment anti aging banyuwangi, skincare profesional banyuwangi, lokasi DRW skincare, alamat klinik kecantikan banyuwangi',
   authors: [{ name: 'DRW Skincare' }],
   creator: 'DRW Skincare',
   publisher: 'DRW Skincare',
@@ -27,22 +27,22 @@ export const metadata = {
     type: 'website',
     locale: 'id_ID',
     url: 'https://drwskincarebanyuwangi.com',
-    siteName: 'DRW Skincare',
-    title: 'DRW Skincare - Produk Kecantikan Skincare & Perawatan Kulit Terbaik',
-    description: 'DRW Skincare menyediakan produk kecantikan skincare dan perawatan kulit profesional, facial, treatment anti aging, dan produk skincare berkualitas.',
+    siteName: 'DRW Skincare Banyuwangi',
+    title: 'DRW Skincare Banyuwangi - Pusat Kecantikan & Perawatan Kulit Terpercaya',
+    description: 'DRW Skincare Banyuwangi - Pusat kecantikan dan perawatan kulit terpercaya di Banyuwangi. Lokasi strategis dengan produk skincare berkualitas dan treatment profesional oleh dokter berpengalaman.',
     images: [
       {
         url: '/logo_drwskincare_square.png',
         width: 1200,
         height: 1200,
-        alt: 'DRW Skincare - Produk Kecantikan Skincare & Perawatan Kulit Terbaik',
+        alt: 'DRW Skincare Banyuwangi - Pusat Kecantikan & Perawatan Kulit',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DRW Skincare - Produk Kecantikan Skincare Terbaik',
-    description: 'Produk kecantikan skincare dan perawatan kulit profesional dengan dokter berpengalaman dan produk berkualitas.',
+    title: 'DRW Skincare Banyuwangi - Pusat Kecantikan Terpercaya',
+    description: 'Pusat kecantikan dan perawatan kulit terpercaya di Banyuwangi dengan produk skincare berkualitas dan dokter berpengalaman.',
     images: ['/logo_drwskincare_square.png'],
   },
   alternates: {
