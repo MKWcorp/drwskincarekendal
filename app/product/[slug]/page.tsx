@@ -34,6 +34,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
 
   useEffect(() => {
     fetchProduct();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.slug]);
 
   const fetchProduct = async () => {

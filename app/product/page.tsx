@@ -93,6 +93,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     filterProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [products, searchQuery]);
 
   const filterProducts = () => {
@@ -319,11 +320,11 @@ const ProductPage = () => {
                 {filteredProducts.length > 0 ? (
                   <>
                     Menampilkan <span className="font-semibold">{filteredProducts.length}</span> produk 
-                    untuk pencarian "<span className="font-semibold">{searchQuery}</span>"
+                    untuk pencarian &quot;<span className="font-semibold">{searchQuery}</span>&quot;
                   </>
                 ) : (
                   <>
-                    Tidak ditemukan produk untuk pencarian "<span className="font-semibold">{searchQuery}</span>"
+                    Tidak ditemukan produk untuk pencarian &quot;<span className="font-semibold">{searchQuery}</span>&quot;
                   </>
                 )}
                 <button 
