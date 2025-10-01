@@ -2,6 +2,7 @@
 
 import { notFound } from "next/navigation";
 import Image from "next/image";
+import Head from "next/head";
 import BuyButton from "@/components/BuyButton";
 import Header from "../../../components/Header";
 import { useState, useEffect } from "react";
@@ -122,9 +123,49 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
     );
   }
 
+  const productImage = product.gambar || product.fotoProduk || '/logo_drwskincare.png';
+  const productPrice = product.hargaUmum 
+    ? new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0,
+      }).format(product.hargaUmum)
+    : 'Hubungi Kami';
+
+  const pageTitle = `${product.namaProduk} - ${productPrice} | DRW Skincare`;
+  const pageDescription = product.deskripsi 
+    ? `${product.deskripsi} - Produk skincare berkualitas dari DRW Skincare dengan harga ${productPrice}. ${product.bpom ? `BPOM: ${product.bpom}` : ''}`
+    : `${product.namaProduk} - Produk skincare berkualitas dari DRW Skincare dengan harga ${productPrice}. Konsultasi gratis dengan dokter berpengalaman.`;
+
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
+    <>
+      <Head>
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDescription} />
+        <meta name="keywords" content={`${product.namaProduk}, skincare, DRW Skincare, produk kecantikan, perawatan kulit, ${product.bpom ? `BPOM ${product.bpom}` : ''}`} />
+        
+        {/* Open Graph */}
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:description" content={pageDescription} />
+        <meta property="og:image" content={productImage} />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="600" />
+        <meta property="og:image:alt" content={`${product.namaProduk} - DRW Skincare`} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="DRW Skincare" />
+        <meta property="og:url" content={`https://drwskincarebanyuwangi.com/product/${params.slug}`} />
+        
+        {/* Twitter Card */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={pageTitle} />
+        <meta name="twitter:description" content={pageDescription} />
+        <meta name="twitter:image" content={productImage} />
+        
+        <link rel="canonical" href={`https://drwskincarebanyuwangi.com/product/${params.slug}`} />
+      </Head>
+      
+      <div className="min-h-screen bg-white">
+        <Header />
 
       <div className="max-w-4xl mx-auto py-8 px-4">
         {/* Breadcrumb Navigation */}
@@ -247,5 +288,6 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
         )}
       </div>
     </div>
+    </>
   );
 }
