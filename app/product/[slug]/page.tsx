@@ -247,7 +247,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
         {relatedProducts.length > 0 && (
           <div className="mt-16">
             <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-              4 Produk DRW Skincare Lainnya
+              Produk DRW Skincare Lainnya
             </h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
               {relatedProducts.map((relatedProduct) => (
