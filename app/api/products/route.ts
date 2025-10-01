@@ -1,12 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/db'
 
-export async function GET() {
+export async function GET(request: NextRequest) {
   try {
+    const { searchParams } = new URL(request.url)
+    const slug = searchParams.get('slug')
+    
+    const whereCondition: any = {
+      isVisible: true
+    }
+    
+    if (slug) {
+      whereCondition.slug = slug
+    }
+    
     const products = await prisma.product.findMany({
-      where: {
-        isVisible: true
-      },
+      where: whereCondition,
       include: {
         categories: true
       },
