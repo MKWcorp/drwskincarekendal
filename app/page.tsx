@@ -214,7 +214,7 @@ const LandingPage = () => {
                     dr. Wahyu Triasmara, M.Kes AAAM, AIFO-K
                   </h3>
                   <p className="text-gray-600 text-xs">
-                    Dokter & Founder
+                    Dokter & Founder DRW Skincare
                   </p>
                 </div>
               </div>
