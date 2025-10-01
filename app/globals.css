@@ -4,3 +4,39 @@
 
 /* Font Awesome CSS */
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+/* Custom Font Utilities */
+@layer utilities {
+  .font-jakarta {
+    font-family: var(--font-plus-jakarta), system-ui, sans-serif;
+  }
+  
+  .font-serif-display {
+    font-family: var(--font-dm-serif), serif;
+  }
+  
+  /* Plus Jakarta Sans weight variations */
+  .font-light {
+    font-weight: 300;
+  }
+  
+  .font-normal {
+    font-weight: 400;
+  }
+  
+  .font-medium {
+    font-weight: 500;
+  }
+  
+  .font-semibold {
+    font-weight: 600;
+  }
+  
+  .font-bold {
+    font-weight: 700;
+  }
+  
+  .font-extrabold {
+    font-weight: 800;
+  }
+}

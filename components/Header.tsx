@@ -42,13 +42,12 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex space-x-6">
           <Link href="/product" className="text-gray-700 hover:text-primary transition-colors">Produk</Link>
-          <Link href="/treatment" className="text-gray-700 hover:text-primary transition-colors">Perawatan</Link>
-          <a href="/#kontak" className="text-gray-700 hover:text-primary transition-colors">Lokasi</a>
+          <a href="/#kontak" className="text-gray-700 hover:text-primary transition-colors">Kontak</a>
         </nav>
         
         {/* Desktop Konsultasi Button */}
         <a 
-          href="https://wa.me/6285852555571" 
+          href="https://wa.me/6289653602188" 
           className="hidden md:inline-block bg-primary text-white px-6 py-2 rounded-lg hover:bg-pink-600 transition-colors text-base"
         >
           Konsultasi Gratis
@@ -78,22 +77,16 @@ export default function Header() {
             >
               Produk
             </Link>
-            <Link 
-              href="/treatment" 
-              className="px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors border-b border-gray-100"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Perawatan
-            </Link>
+
             <a 
               href="/#kontak" 
               className="px-4 py-3 text-gray-700 hover:bg-gray-50 hover:text-primary transition-colors border-b border-gray-100"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Lokasi
+              Kontak
             </a>
             <a 
-              href="https://wa.me/6285852555571" 
+              href="https://wa.me/6289653602188" 
               className="mx-4 mt-3 mb-2 bg-primary text-white px-4 py-3 rounded-lg hover:bg-pink-600 transition-colors text-center text-base font-medium"
               onClick={() => setIsMobileMenuOpen(false)}
             >

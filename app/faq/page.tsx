@@ -16,7 +16,7 @@ export default function FAQPage() {
     },
     {
       question: "Bagaimana cara konsultasi dengan dokter?",
-      answer: "Anda bisa konsultasi gratis dengan dr. Wahyu Triasmara melalui WhatsApp di 0858-5255-5571. Konsultasi tersedia setiap hari untuk membantu menentukan perawatan yang tepat."
+      answer: "Anda bisa konsultasi gratis dengan dr. Wahyu Triasmara melalui WhatsApp di 0896-5360-2188. Konsultasi tersedia setiap hari untuk membantu menentukan perawatan yang tepat."
     },
     {
       question: "Berapa lama hasil treatment terlihat?",
@@ -80,7 +80,7 @@ export default function FAQPage() {
             Tim kami siap membantu Anda dengan pertanyaan lainnya seputar perawatan kulit dan produk skincare.
           </p>
           <a 
-            href="https://wa.me/6285852555571" 
+            href="https://wa.me/6289653602188" 
             className="bg-primary text-white px-8 py-3 rounded-lg text-lg hover:bg-pink-600 transition-colors inline-block"
           >
             Konsultasi Gratis Sekarang

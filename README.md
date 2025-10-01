@@ -51,7 +51,7 @@ drw-skincare-banyuwangi/
 
 ## Kontak
 
-- 📱 WhatsApp: 0858-5255-5571
+- 📱 WhatsApp: 0896-5360-2188
 - 📧 Email: info@drwskincare.com
 - 📍 Alamat: DRW Skincare Pusat Banyuwangi
 

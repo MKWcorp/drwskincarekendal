@@ -11,7 +11,6 @@ export async function GET() {
   const staticPages = [
     '',
     '/product',
-    '/treatment',
     '/faq',
     '/privacy-policy',
   ];

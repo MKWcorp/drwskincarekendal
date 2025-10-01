@@ -16,5 +16,4 @@ Disallow: /*.json$
 # Allow important pages
 Allow: /
 Allow: /product
-Allow: /treatment
 Allow: /product/*

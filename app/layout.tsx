@@ -1,9 +1,18 @@
 import './globals.css'
 import '../lib/fontawesome'
-import { Inter } from 'next/font/google'
+import { Plus_Jakarta_Sans, DM_Serif_Display } from 'next/font/google'
 import FloatingWhatsApp from '../components/FloatingWhatsApp'
 
-const inter = Inter({ subsets: ['latin'] })
+const plusJakarta = Plus_Jakarta_Sans({ 
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-plus-jakarta'
+})
+const dmSerif = DM_Serif_Display({ 
+  weight: ['400'],
+  subsets: ['latin'],
+  variable: '--font-dm-serif'
+})
 
 export const viewport = {
   width: 'device-width',
@@ -119,7 +128,7 @@ export default function RootLayout({
     "priceRange": "$$",
     "openingHours": "Mo-Su 09:00-21:00",
     "sameAs": [
-      "https://wa.me/6285852555571"
+      "https://wa.me/6289653602188"
     ]
   };
 
@@ -134,7 +143,7 @@ export default function RootLayout({
         />
         <meta name="google-site-verification" content="GOOGLE_VERIFICATION_CODE" />
       </head>
-      <body className={inter.className}>
+      <body className={`${plusJakarta.className} ${dmSerif.variable} ${plusJakarta.variable}`}>
         {children}
         <FloatingWhatsApp />
       </body>

@@ -65,7 +65,7 @@ export default function PrivacyPolicyPage() {
             <div className="bg-gray-50 p-4 rounded-lg">
               <p className="text-gray-700">
                 <strong>DRW Skincare Banyuwangi</strong><br />
-                WhatsApp: 0858-5255-5571<br />
+                WhatsApp: 0896-5360-2188<br />
                 Email: info@drwskincare.com
               </p>
             </div>

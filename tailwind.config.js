@@ -12,7 +12,10 @@ module.exports = {
         secondary: '#f8f9fa',
       },
       fontFamily: {
-        sans: ['Arial', 'sans-serif'],
+        sans: ['var(--font-plus-jakarta)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-dm-serif)', 'serif'],
+        jakarta: ['var(--font-plus-jakarta)', 'system-ui', 'sans-serif'],
+        'serif-display': ['var(--font-dm-serif)', 'serif'],
       },
       animation: {
         'ping-delay': 'ping 1s cubic-bezier(0, 0, 0.2, 1) infinite 0.2s',

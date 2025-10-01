@@ -7,7 +7,7 @@ import { faWhatsapp } from '@fortawesome/free-brands-svg-icons'
 export default function WhatsAppButton() {
   const [isHovered, setIsHovered] = useState(false)
     // Nomor WhatsApp DRW Skincare
-  const whatsappNumber = '6285852555571' // Format: 62 + nomor tanpa 0 di depan  
+  const whatsappNumber = '6289653602188' // Format: 62 + nomor tanpa 0 di depan  
   const message = 'Halo! Saya ingin konsultasi tentang produk DRW Skincare.'
   
   const handleWhatsAppClick = () => {

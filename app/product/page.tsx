@@ -153,7 +153,7 @@ const ProductPage = () => {
 
   const handleWhatsAppOrder = (productName: string) => {
     const message = `Halo kak aku mau tanya produk ${productName}`;
-    const whatsappUrl = `https://wa.me/6285852555571?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/6289653602188?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -322,7 +322,7 @@ const ProductPage = () => {
                 Produk akan segera ditambahkan. Silakan hubungi kami untuk informasi lebih lanjut.
               </p>
               <a 
-                href="https://wa.me/6285852555571" 
+                href="https://wa.me/6289653602188" 
                 className="mt-6 inline-block bg-primary text-white px-8 py-3 rounded-lg hover:bg-pink-600 transition-colors"
               >
                 <FontAwesomeIcon icon={faPhone} className="mr-2" />
@@ -409,7 +409,6 @@ const ProductPage = () => {
                     
                     {/* Price */}
                     <div className="text-lg md:text-xl font-bold text-primary group-hover:text-pink-600 mb-3 md:mb-4 transition-colors duration-300 group-hover:scale-105 transform">
-                      <span className="text-xs md:text-sm text-gray-500 font-normal group-hover:text-gray-600 transition-colors duration-300">Harga: </span>
                       {formatPrice(product.hargaUmum)}
                     </div>
                     
@@ -449,7 +448,7 @@ const ProductPage = () => {
             Tim ahli kami siap membantu Anda memilih produk yang tepat untuk kulit Anda
           </p>
           <a 
-            href="https://wa.me/6285852555571" 
+            href="https://wa.me/6289653602188" 
             className="bg-white text-primary px-6 md:px-8 py-3 md:py-4 rounded-lg text-base md:text-lg font-semibold hover:bg-gray-100 transition-colors inline-block"
           >
             Konsultasi Gratis
