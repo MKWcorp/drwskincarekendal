@@ -96,14 +96,30 @@ const LandingPage = () => {
             </a>
           </div>
           <div className="lg:w-1/2 flex justify-center mt-8 lg:mt-0">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+            <div className="relative">
+              {/* Doctor Photo - PNG transparent, no crop, no frame */}
               <Image 
-                src="/images/hero.svg" 
-                alt="Hero Image" 
-                fill
-                className="object-cover rounded-2xl shadow-lg"
+                src="/images/drwahyu.png" 
+                alt="Dr. Wahyu Triasmara" 
+                width={400}
+                height={500}
+                className="w-64 h-auto md:w-80 lg:w-96"
                 priority
+                quality={100}
+                unoptimized
               />
+              
+              {/* Floating Label */}
+              <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl px-4 py-3 border border-pink-100 text-center whitespace-nowrap">
+                <div className="flex flex-col items-center">
+                  <h3 className="font-bold text-gray-800 text-xs leading-tight">
+                    dr. Wahyu Triasmara, M.Kes AAAM, AIFO-K
+                  </h3>
+                  <p className="text-gray-600 text-xs">
+                    Dokter & Founder DRW Skincare
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
