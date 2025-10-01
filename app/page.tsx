@@ -166,7 +166,7 @@ const LandingPage = () => {
               Kulit Sehat dan Cantik Dimulai dari Sini!
             </h1>
             <p className="text-base md:text-xl text-gray-600 mb-6 md:mb-8">
-              Solusi perawatan kulit terbaik dengan produk berkualitas dan konsultasi profesional.
+              Solusi perawatan kulit terbaik dengan produk berkualitas dan konsultasi profesional langsung dari dokter berpengalaman.
             </p>
             <a 
               href="https://wa.me/6285852555571" 
@@ -176,14 +176,34 @@ const LandingPage = () => {
             </a>
           </div>
           <div className="lg:w-1/2 flex justify-center mt-8 lg:mt-0">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              <Image 
-                src="/images/hero.svg" 
-                alt="Hero Image" 
-                fill
-                className="object-cover rounded-2xl shadow-lg"
-                priority
-              />
+            <div className="text-center">
+              <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 mx-auto mb-4 md:mb-6">
+                <Image 
+                  src="/drwahyu.png" 
+                  alt="Dr. Wahyu Triasmara - Dokter & Founder DRW Skincare" 
+                  fill
+                  className="object-cover rounded-2xl shadow-xl"
+                  priority
+                />
+                {/* Professional Badge */}
+                <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-white px-4 py-2 rounded-full shadow-lg border-2 border-primary">
+                  <span className="text-xs md:text-sm font-semibold text-primary">Dokter Profesional</span>
+                </div>
+              </div>
+              
+              {/* Doctor Info */}
+              <div className="bg-white p-4 md:p-6 rounded-xl shadow-lg max-w-sm mx-auto">
+                <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">
+                  dr. Wahyu Triasmara, M.Kes AAAM, AIFO-K
+                </h3>
+                <p className="text-sm md:text-base text-gray-600 mb-3">
+                  Dokter & Founder DRW Skincare
+                </p>
+                <div className="flex justify-center space-x-2">
+                  <span className="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">Berpengalaman</span>
+                  <span className="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">Terpercaya</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
