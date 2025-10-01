@@ -6,12 +6,12 @@ import FloatingWhatsApp from '../components/FloatingWhatsApp'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'DRW Skincare Banyuwangi - Klinik Kecantikan & Perawatan Kulit Terbaik',
-  description: 'Klinik kecantikan DRW Skincare di Banyuwangi menyediakan perawatan kulit profesional, facial, treatment anti aging, dan produk skincare berkualitas. Konsultasi gratis dengan dokter berpengalaman.',
-  keywords: 'DRW Skincare, klinik kecantikan Banyuwangi, perawatan kulit Banyuwangi, facial Banyuwangi, skincare Banyuwangi, treatment wajah, anti aging, jerawat, whitening, dokter kulit Banyuwangi, kosmetik Banyuwangi, kecantikan Jember, perawatan wajah Situbondo',
-  authors: [{ name: 'DRW Skincare Banyuwangi' }],
+  title: 'DRW Skincare - Produk Kecantikan Skincare & Perawatan Kulit Terbaik',
+  description: 'DRW Skincare menyediakan produk kecantikan skincare dan perawatan kulit profesional, facial, treatment anti aging, dan produk skincare berkualitas. Konsultasi gratis dengan dokter berpengalaman.',
+  keywords: 'DRW Skincare, produk kecantikan skincare, perawatan kulit, facial, skincare, treatment wajah, anti aging, jerawat, whitening, dokter kulit, kosmetik, kecantikan, perawatan wajah',
+  authors: [{ name: 'DRW Skincare' }],
   creator: 'DRW Skincare',
-  publisher: 'DRW Skincare Banyuwangi',
+  publisher: 'DRW Skincare',
   robots: 'index, follow',
   viewport: 'width=device-width, initial-scale=1',
   icons: {
@@ -21,10 +21,10 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'id_ID',
-    url: 'https://drwskincarebanyuwangi.vercel.app',
-    siteName: 'DRW Skincare Banyuwangi',
-    title: 'DRW Skincare Banyuwangi - Klinik Kecantikan & Perawatan Kulit Terbaik',
-    description: 'Klinik kecantikan DRW Skincare di Banyuwangi menyediakan perawatan kulit profesional, facial, treatment anti aging, dan produk skincare berkualitas.',
+    url: 'https://drwskincarebanyuwangi.com',
+    siteName: 'DRW Skincare',
+    title: 'DRW Skincare - Produk Kecantikan Skincare & Perawatan Kulit Terbaik',
+    description: 'DRW Skincare menyediakan produk kecantikan skincare dan perawatan kulit profesional, facial, treatment anti aging, dan produk skincare berkualitas.',
     images: [
       {
         url: '/logo_drwskincare.png',
@@ -36,12 +36,12 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DRW Skincare Banyuwangi - Klinik Kecantikan Terbaik',
-    description: 'Perawatan kulit profesional di Banyuwangi dengan dokter berpengalaman dan produk berkualitas.',
+    title: 'DRW Skincare - Produk Kecantikan Skincare Terbaik',
+    description: 'Produk kecantikan skincare dan perawatan kulit profesional dengan dokter berpengalaman dan produk berkualitas.',
     images: ['/logo_drwskincare.png'],
   },
   alternates: {
-    canonical: 'https://drwskincarebanyuwangi.vercel.app',
+    canonical: 'https://drwskincarebanyuwangi.com',
   },
   other: {
     'geo.region': 'ID-JI',
@@ -59,11 +59,11 @@ export default function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
-    "name": "DRW Skincare Banyuwangi",
-    "description": "Klinik kecantikan dan perawatan kulit profesional di Banyuwangi dengan dokter berpengalaman",
-    "url": "https://drwskincarebanyuwangi.vercel.app",
-    "logo": "https://drwskincarebanyuwangi.vercel.app/logo_drwskincare.png",
-    "image": "https://drwskincarebanyuwangi.vercel.app/logo_drwskincare.png",
+    "name": "DRW Skincare",
+    "description": "Produk kecantikan skincare dan perawatan kulit profesional dengan dokter berpengalaman",
+    "url": "https://drwskincarebanyuwangi.com",
+    "logo": "https://drwskincarebanyuwangi.com/logo_drwskincare.png",
+    "image": "https://drwskincarebanyuwangi.com/logo_drwskincare.png",
     "telephone": "+62-858-5255-5571",
     "email": "info@drwskincare.com",
     "address": {

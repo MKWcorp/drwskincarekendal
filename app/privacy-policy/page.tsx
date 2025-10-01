@@ -1,19 +1,22 @@
 import { Metadata } from 'next'
+import Header from '../../components/Header'
 
 export const metadata: Metadata = {
-  title: 'Kebijakan Privasi - DRW Skincare Banyuwangi',
-  description: 'Kebijakan privasi DRW Skincare Banyuwangi mengenai penggunaan data pribadi dan informasi pelanggan.',
+  title: 'Kebijakan Privasi - DRW Skincare',
+  description: 'Kebijakan privasi DRW Skincare mengenai penggunaan data pribadi dan informasi pelanggan.',
   robots: 'index, follow',
 }
 
 export default function PrivacyPolicyPage() {
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
+      <Header />
+      
+      {/* Page Header */}
       <header className="bg-primary text-white py-8">
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-3xl font-bold">Kebijakan Privasi</h1>
-          <p className="text-pink-100 mt-2">DRW Skincare Banyuwangi</p>
+          <p className="text-pink-100 mt-2">DRW Skincare</p>
         </div>
       </header>
 

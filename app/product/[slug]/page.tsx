@@ -3,6 +3,7 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import BuyButton from "@/components/BuyButton";
+import Header from "../../../components/Header";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -123,33 +124,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header Navigation */}
-      <header className="flex justify-between items-center px-4 md:px-6 py-4 md:py-5 bg-white shadow-sm sticky top-0 z-50">
-        <div className="flex items-center">
-          <Image 
-            src="/logo_drwskincare.png" 
-            alt="DRW Skincare Logo" 
-            width={300}
-            height={100}
-            className="h-10 md:h-12 w-auto"
-            priority
-            quality={100}
-            unoptimized
-          />
-        </div>
-        <nav className="hidden md:flex space-x-6">
-          <Link href="/product" className="text-gray-700 hover:text-primary transition-colors">Produk</Link>
-          <Link href="/treatment" className="text-gray-700 hover:text-primary transition-colors">Treatment</Link>
-          <a href="#kontak" className="text-gray-700 hover:text-primary transition-colors">Kontak</a>
-        </nav>
-        <a 
-          href="https://wa.me/6285852555571" 
-          className="bg-primary text-white px-3 md:px-6 py-2 rounded-lg hover:bg-pink-600 transition-colors text-sm md:text-base"
-        >
-          <span className="hidden md:inline">Konsultasi Gratis</span>
-          <span className="md:hidden">Konsultasi</span>
-        </a>
-      </header>
+      <Header />
 
       <div className="max-w-4xl mx-auto py-8 px-4">
         {/* Breadcrumb Navigation */}

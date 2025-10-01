@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
+import Header from '@/components/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faMapMarkerAlt, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 
@@ -172,33 +173,7 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Header */}
-      <header className="flex justify-between items-center px-4 md:px-6 py-4 md:py-5 bg-white shadow-sm sticky top-0 z-50">
-        <div className="flex items-center">
-          <Image 
-            src="/logo_drwskincare.png" 
-            alt="DRW Skincare Logo" 
-            width={300}
-            height={100}
-            className="h-10 md:h-12 w-auto"
-            priority
-            quality={100}
-            unoptimized
-          />
-        </div>
-        <nav className="hidden md:flex space-x-6">
-          <Link href="/product" className="text-gray-700 hover:text-primary transition-colors">Produk</Link>
-          <Link href="/treatment" className="text-gray-700 hover:text-primary transition-colors">Perawatan</Link>
-          <a href="#kontak" className="text-gray-700 hover:text-primary transition-colors">Kontak</a>
-        </nav>
-        <a 
-          href="https://wa.me/6285852555571" 
-          className="bg-primary text-white px-3 md:px-6 py-2 rounded-lg hover:bg-pink-600 transition-colors text-sm md:text-base"
-        >
-          <span className="hidden md:inline">Konsultasi Gratis</span>
-          <span className="md:hidden">Konsultasi</span>
-        </a>
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section className="hero bg-gradient-to-r from-pink-50 to-white py-12 md:py-20 px-4 md:px-6">
@@ -414,7 +389,7 @@ const LandingPage = () => {
               <div className="mb-4">
                 <Image 
                   src="/logo_drwskincare.png" 
-                  alt="DRW Skincare Banyuwangi - Klinik Kecantikan dan Perawatan Kulit Terbaik" 
+                  alt="DRW Skincare - Produk Kecantikan Skincare & Perawatan Kulit Terbaik" 
                   width={300}
                   height={100}
                   className="h-16 w-auto"

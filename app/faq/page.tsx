@@ -1,9 +1,10 @@
 import { Metadata } from 'next'
+import Header from '../../components/Header'
 
 export const metadata: Metadata = {
-  title: 'FAQ - Pertanyaan Seputar DRW Skincare Banyuwangi',
-  description: 'Pertanyaan yang sering diajukan seputar produk skincare, treatment kecantikan, dan layanan DRW Skincare Banyuwangi. Temukan jawaban lengkap di sini.',
-  keywords: 'FAQ DRW Skincare, pertanyaan skincare, perawatan kulit Banyuwangi, konsultasi gratis, treatment kecantikan',
+  title: 'FAQ - Pertanyaan Seputar DRW Skincare',
+  description: 'Pertanyaan yang sering diajukan seputar produk skincare, treatment kecantikan, dan layanan DRW Skincare. Temukan jawaban lengkap di sini.',
+  keywords: 'FAQ DRW Skincare, pertanyaan skincare, perawatan kulit, konsultasi gratis, treatment kecantikan, produk kecantikan skincare',
 }
 
 export default function FAQPage() {
@@ -52,11 +53,13 @@ export default function FAQPage() {
         }}
       />
       
-      {/* Header */}
+      <Header />
+      
+      {/* Page Header */}
       <header className="bg-primary text-white py-8">
         <div className="max-w-4xl mx-auto px-4">
           <h1 className="text-3xl font-bold">FAQ - Pertanyaan yang Sering Diajukan</h1>
-          <p className="text-pink-100 mt-2">DRW Skincare Banyuwangi</p>
+          <p className="text-pink-100 mt-2">DRW Skincare</p>
         </div>
       </header>
 

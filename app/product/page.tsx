@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import Head from 'next/head';
+import Header from '../../components/Header';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faEnvelope, faPhone, faShoppingCart, faInfoCircle, faSpinner, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 
@@ -231,43 +232,7 @@ const ProductPage = () => {
     <>
       <style dangerouslySetInnerHTML={{ __html: styles }} />
       <div className="min-h-screen bg-gray-50">
-        {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-6xl mx-auto px-4 md:px-6 py-3 md:py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center">
-            <Image 
-              src="/logo_drwskincare.png" 
-              alt="DRW Skincare Logo" 
-              width={300}
-              height={100}
-              className="h-10 md:h-12 w-auto"
-              priority
-              quality={100}
-              unoptimized
-            />
-          </Link>
-          <nav className="hidden md:flex space-x-6">
-            <Link href="/" className="text-gray-700 hover:text-primary transition-colors">
-              Beranda
-            </Link>
-            <Link href="/product" className="text-primary font-semibold">
-              Produk
-            </Link>
-            <Link href="/treatment" className="text-gray-700 hover:text-primary transition-colors">
-              Perawatan
-            </Link>
-            <Link href="/#kontak" className="text-gray-700 hover:text-primary transition-colors">
-              Kontak
-            </Link>
-          </nav>
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <Link href="/" className="text-sm text-gray-600 hover:text-primary">
-              ← Beranda
-            </Link>
-          </div>
-        </div>
-      </header>
+        <Header />
 
       {/* Page Title */}
       <section className="bg-white py-8 md:py-12">
@@ -506,12 +471,12 @@ const ProductPage = () => {
             />
           </div>
           <div className="space-y-1 md:space-y-2 text-gray-300 text-sm md:text-base">
-            <p><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /> DRW Skincare Pusat Banyuwangi</p>
+            <p><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /> DRW Skincare Pusat</p>
             <p><FontAwesomeIcon icon={faEnvelope} className="mr-2" /> info@drwskincare.com</p>
             <p><FontAwesomeIcon icon={faPhone} className="mr-2" /> 0858-5255-5571</p>
           </div>
           <div className="border-t border-gray-700 mt-6 md:mt-8 pt-6 md:pt-8 text-gray-400 text-xs md:text-sm">
-            <p>&copy; 2025 DRW Skincare Banyuwangi. All rights reserved.</p>
+            <p>&copy; 2025 DRW Skincare. All rights reserved.</p>
           </div>
         </div>
       </footer>
