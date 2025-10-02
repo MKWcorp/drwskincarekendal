@@ -23,8 +23,8 @@ export default function FAQPage() {
       answer: "Hasil treatment bervariasi tergantung jenis kulit dan kondisi awal. Umumnya hasil mulai terlihat setelah 2-4 kali perawatan dengan interval yang tepat."
     },
     {
-      question: "Apakah DRW Skincare melayani area luar Banyuwangi?",
-      answer: "Ya, kami melayani area Banyuwangi, Jember, Situbondo, dan sekitarnya. Untuk produk, kami juga melayani pengiriman ke seluruh Indonesia."
+      question: "Apakah DRW Skincare melayani area luar Kendal?",
+      answer: "Ya, kami melayani area Kendal, Semarang, Pekalongan, Batang, dan sekitarnya. Untuk produk, kami juga melayani pengiriman ke seluruh Indonesia."
     },
     {
       question: "Bagaimana cara booking treatment?",

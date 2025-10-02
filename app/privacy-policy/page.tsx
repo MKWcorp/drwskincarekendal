@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
           <section className="mb-8">
             <h2 className="text-2xl font-bold text-gray-800 mb-4">1. Informasi yang Kami Kumpulkan</h2>
             <p className="text-gray-600 mb-4">
-              DRW Skincare Banyuwangi mengumpulkan informasi pribadi yang Anda berikan secara sukarela saat:
+              DRW Skincare mengumpulkan informasi pribadi yang Anda berikan secara sukarela saat:
             </p>
             <ul className="list-disc pl-6 text-gray-600 mb-4">
               <li>Melakukan konsultasi melalui WhatsApp</li>
@@ -64,7 +64,7 @@ export default function PrivacyPolicyPage() {
             </p>
             <div className="bg-gray-50 p-4 rounded-lg">
               <p className="text-gray-700">
-                <strong>DRW Skincare Banyuwangi</strong><br />
+                <strong>DRW Skincare</strong><br />
                 WhatsApp: 0896-5360-2188<br />
                 Email: info@drwskincare.com
               </p>

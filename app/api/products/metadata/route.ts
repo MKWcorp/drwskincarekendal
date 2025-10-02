@@ -51,7 +51,7 @@ export async function GET(request: NextRequest) {
       title,
       description,
       image: productImage,
-      url: `https://drwskincarebanyuwangi.com/product/${slug}`,
+      url: `https://drwskincarekendal.com/product/${slug}`,
       keywords: `${product.namaProduk}, skincare, DRW Skincare, produk kecantikan, perawatan kulit, ${product.bpom ? `BPOM ${product.bpom}` : ''}`,
       price: productPrice,
       bpom: product.bpom,

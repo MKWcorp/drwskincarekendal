@@ -5,7 +5,7 @@ import { prisma } from '@/lib/db';
 export const dynamic = 'force-dynamic'
 
 export async function GET() {
-  const baseUrl = 'https://drwskincarebanyuwangi.vercel.app';
+  const baseUrl = 'https://drwskincarekendal.vercel.app';
   
   // Static pages
   const staticPages = [

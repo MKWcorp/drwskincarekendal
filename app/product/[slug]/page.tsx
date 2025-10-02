@@ -154,7 +154,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
         <meta property="og:image:alt" content={`${product.namaProduk} - DRW Skincare`} />
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="DRW Skincare" />
-        <meta property="og:url" content={`https://drwskincarebanyuwangi.com/product/${params.slug}`} />
+        <meta property="og:url" content={`https://drwskincarekendal.com/product/${params.slug}`} />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
@@ -162,7 +162,7 @@ export default function ProductDetailPage({ params }: { params: { slug: string }
         <meta name="twitter:description" content={pageDescription} />
         <meta name="twitter:image" content={productImage} />
         
-        <link rel="canonical" href={`https://drwskincarebanyuwangi.com/product/${params.slug}`} />
+        <link rel="canonical" href={`https://drwskincarekendal.com/product/${params.slug}`} />
       </Head>
       
       <div className="min-h-screen bg-white">

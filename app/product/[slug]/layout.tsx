@@ -15,7 +15,7 @@ async function fetchProduct(slug: string): Promise<Product | null> {
   try {
     // Use production URL for build time, localhost for development
     const baseUrl = process.env.NODE_ENV === 'production' 
-      ? 'https://drwskincarebanyuwangi.com' 
+      ? 'https://drwskincarekendal.com' 
       : 'http://localhost:3000';
       
     const response = await fetch(`${baseUrl}/api/products?slug=${slug}`, {
@@ -57,7 +57,7 @@ export async function generateMetadata({
   // Ensure absolute URL for Open Graph
   const productImage = productImageRelative.startsWith('http') 
     ? productImageRelative 
-    : `https://drwskincarebanyuwangi.com${productImageRelative}`;
+    : `https://drwskincarekendal.com${productImageRelative}`;
     
   const productPrice = product.hargaUmum 
     ? new Intl.NumberFormat('id-ID', {
@@ -75,8 +75,8 @@ export async function generateMetadata({
   return {
     title,
     description,
-    keywords: `${product.namaProduk}, produk kecantikan skincare, DRW skincare banyuwangi, produk skincare dokter, produk kecantikan profesional, skincare BPOM, perawatan kulit, ${product.bpom ? `BPOM ${product.bpom}` : ''}`,
-    metadataBase: new URL('https://drwskincarebanyuwangi.com'),
+    keywords: `${product.namaProduk}, produk kecantikan skincare, DRW skincare kendal, produk skincare dokter, produk kecantikan profesional, skincare BPOM, perawatan kulit, ${product.bpom ? `BPOM ${product.bpom}` : ''}`,
+    metadataBase: new URL('https://drwskincarekendal.com'),
     openGraph: {
       title,
       description,
@@ -90,7 +90,7 @@ export async function generateMetadata({
       ],
       type: 'website',
       siteName: 'DRW Skincare',
-      url: `https://drwskincarebanyuwangi.com/product/${params.slug}`,
+      url: `https://drwskincarekendal.com/product/${params.slug}`,
     },
     twitter: {
       card: 'summary_large_image',
@@ -99,7 +99,7 @@ export async function generateMetadata({
       images: [productImage],
     },
     alternates: {
-      canonical: `https://drwskincarebanyuwangi.com/product/${params.slug}`,
+      canonical: `https://drwskincarekendal.com/product/${params.slug}`,
     },
   };
 }
@@ -108,7 +108,7 @@ export async function generateMetadata({
 export async function generateStaticParams() {
   try {
     const baseUrl = process.env.NODE_ENV === 'production' 
-      ? 'https://drwskincarebanyuwangi.com' 
+      ? 'https://drwskincarekendal.com' 
       : 'http://localhost:3000';
       
     const response = await fetch(`${baseUrl}/api/products`, {

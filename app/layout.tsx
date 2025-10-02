@@ -20,10 +20,10 @@ export const viewport = {
 }
 
 export const metadata = {
-  metadataBase: new URL('https://drwskincarebanyuwangi.com'),
-  title: 'DRW Skincare Banyuwangi - Produk Kecantikan Skincare & Perawatan Kulit Terbaik',
-  description: 'DRW Skincare Banyuwangi - Pusat kecantikan dan perawatan kulit terpercaya di Banyuwangi. Menyediakan produk skincare berkualitas, treatment profesional, dan konsultasi dengan dokter berpengalaman. Lokasi strategis dan pelayanan terbaik.',
-  keywords: 'DRW Skincare Banyuwangi, klinik kecantikan banyuwangi, produk skincare banyuwangi, perawatan kulit banyuwangi, dokter kulit banyuwangi, facial banyuwangi, treatment anti aging banyuwangi, skincare profesional banyuwangi, lokasi DRW skincare, alamat klinik kecantikan banyuwangi',
+  metadataBase: new URL('https://drwskincarekendal.com'),
+  title: 'DRW Skincare - Produk Kecantikan Skincare & Perawatan Kulit Terbaik',
+  description: 'DRW Skincare - Pusat kecantikan dan perawatan kulit terpercaya di Kendal. Menyediakan produk skincare berkualitas, treatment profesional, dan konsultasi dengan dokter berpengalaman. Lokasi strategis dan pelayanan terbaik.',
+  keywords: 'DRW Skincare, klinik kecantikan kendal, produk skincare kendal, perawatan kulit kendal, dokter kulit kendal, facial kendal, treatment anti aging kendal, skincare profesional kendal, lokasi DRW skincare, alamat klinik kecantikan kendal',
   authors: [{ name: 'DRW Skincare' }],
   creator: 'DRW Skincare',
   publisher: 'DRW Skincare',
@@ -35,31 +35,31 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'id_ID',
-    url: 'https://drwskincarebanyuwangi.com',
-    siteName: 'DRW Skincare Banyuwangi',
-    title: 'DRW Skincare Banyuwangi - Pusat Kecantikan & Perawatan Kulit Terpercaya',
-    description: 'DRW Skincare Banyuwangi - Pusat kecantikan dan perawatan kulit terpercaya di Banyuwangi. Lokasi strategis dengan produk skincare berkualitas dan treatment profesional oleh dokter berpengalaman.',
+    url: 'https://drwskincarekendal.com',
+    siteName: 'DRW Skincare',
+    title: 'DRW Skincare - Pusat Kecantikan & Perawatan Kulit Terpercaya',
+    description: 'DRW Skincare - Pusat kecantikan dan perawatan kulit terpercaya di Kendal. Lokasi strategis dengan produk skincare berkualitas dan treatment profesional oleh dokter berpengalaman.',
     images: [
       {
         url: '/logo_drwskincare_square.png',
         width: 1200,
         height: 1200,
-        alt: 'DRW Skincare Banyuwangi - Pusat Kecantikan & Perawatan Kulit',
+        alt: 'DRW Skincare - Pusat Kecantikan & Perawatan Kulit',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DRW Skincare Banyuwangi - Pusat Kecantikan Terpercaya',
-    description: 'Pusat kecantikan dan perawatan kulit terpercaya di Banyuwangi dengan produk skincare berkualitas dan dokter berpengalaman.',
+    title: 'DRW Skincare - Pusat Kecantikan Terpercaya',
+    description: 'Pusat kecantikan dan perawatan kulit terpercaya di Kendal dengan produk skincare berkualitas dan dokter berpengalaman.',
     images: ['/logo_drwskincare_square.png'],
   },
   alternates: {
-    canonical: 'https://drwskincarebanyuwangi.com',
+    canonical: 'https://drwskincarekendal.com',
   },
   other: {
     'geo.region': 'ID-JI',
-    'geo.placename': 'Banyuwangi',
+    'geo.placename': 'Kendal',
     'geo.position': '-8.2325;114.3675',
     'ICBM': '-8.2325, 114.3675',
   },
@@ -75,15 +75,15 @@ export default function RootLayout({
     "@type": "MedicalBusiness",
     "name": "DRW Skincare",
     "description": "Produk kecantikan skincare dan perawatan kulit profesional dengan dokter berpengalaman",
-    "url": "https://drwskincarebanyuwangi.com",
-    "logo": "https://drwskincarebanyuwangi.com/logo_drwskincare_square.png",
-    "image": "https://drwskincarebanyuwangi.com/logo_drwskincare_square.png",
+    "url": "https://drwskincarekendal.com",
+    "logo": "https://drwskincarekendal.com/logo_drwskincare_square.png",
+    "image": "https://drwskincarekendal.com/logo_drwskincare_square.png",
     "telephone": "+62-858-5255-5571",
     "email": "info@drwskincare.com",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "DRW Skincare Pusat",
-      "addressLocality": "Banyuwangi",
+      "addressLocality": "Kendal",
       "addressRegion": "Jawa Timur",
       "postalCode": "68400",
       "addressCountry": "ID"
@@ -96,15 +96,19 @@ export default function RootLayout({
     "areaServed": [
       {
         "@type": "City",
-        "name": "Banyuwangi"
+        "name": "Kendal"
       },
       {
         "@type": "City", 
-        "name": "Jember"
+        "name": "Semarang"
       },
       {
         "@type": "City",
-        "name": "Situbondo"
+        "name": "Pekalongan"
+      },
+      {
+        "@type": "City",
+        "name": "Batang"
       }
     ],
     "founder": {

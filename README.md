@@ -1,6 +1,6 @@
-# DRW Skincare Banyuwangi
+# DRW Skincare
 
-Selamat datang di website DRW Skincare Banyuwangi - solusi perawatan kulit terbaik dengan produk berkualitas dan konsultasi profesional.
+Selamat datang di website DRW Skincare - solusi perawatan kulit terbaik dengan produk berkualitas dan konsultasi profesional.
 
 ## Fitur
 
@@ -36,7 +36,7 @@ npm run dev
 ## Struktur Project
 
 ```
-drw-skincare-banyuwangi/
+drw-skincare-kendal/
 ├── app/
 │   ├── globals.css
 │   ├── layout.tsx
@@ -53,7 +53,7 @@ drw-skincare-banyuwangi/
 
 - 📱 WhatsApp: 0896-5360-2188
 - 📧 Email: info@drwskincare.com
-- 📍 Alamat: DRW Skincare Pusat Banyuwangi
+- 📍 Alamat: DRW Skincare Pusat Kendal
 
 ## Deploy
 
