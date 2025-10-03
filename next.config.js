@@ -22,6 +22,19 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'via.placeholder.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'drwgroup.id',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.drwgroup.id',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+      },
     ],
   },
 }

@@ -5,7 +5,7 @@ import { prisma } from '@/lib/db';
 export const dynamic = 'force-dynamic'
 
 export async function GET() {
-  const baseUrl = 'https://drwskincarekendal.vercel.app';
+  const baseUrl = 'https://drwskincarekendal.com';
   
   // Static pages
   const staticPages = [
@@ -18,10 +18,7 @@ export async function GET() {
   // Get product slugs dynamically from database
   const productSlugs: string[] = [];
   try {
-    const products = await prisma.product.findMany({
-      where: {
-        isVisible: true
-      },
+    const products = await prisma.produk.findMany({
       select: {
         slug: true
       }

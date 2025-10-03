@@ -8,8 +8,7 @@ import {
   faWhatsapp
 } from '@fortawesome/free-brands-svg-icons';
 import { 
-  faPhone, 
-  faShoppingBag
+  faPhone
 } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
@@ -86,7 +85,13 @@ const Footer = () => {
 
               {/* Shopee */}
               <div className="flex items-center space-x-3">
-                <FontAwesomeIcon icon={faShoppingBag} className="text-orange-400 w-5 h-5" />
+                <Image 
+                  src="/shopee.ico" 
+                  alt="Shopee" 
+                  width={20} 
+                  height={20} 
+                  className="w-5 h-5"
+                />
                 <a href="https://shopee.co.id/drwskincarenurya" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
                   drwskincarenurya
                 </a>
