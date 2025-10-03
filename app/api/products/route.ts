@@ -68,7 +68,7 @@ export async function GET(request: NextRequest) {
       }
 
       if (!type || type === 'packages' || type === 'all') {
-        packages = await prisma.paket_produk.findMany({
+        packages = await (prisma as any).paket_produk.findMany({
           include: {
             paket_kategori: {
               include: {
