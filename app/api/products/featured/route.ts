@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic'
 
 export async function GET() {
   try {
-    const products = await prisma.produk.findMany({
+    const products = await (prisma as any).produk.findMany({
       include: {
         produk_kategori: {
           include: {

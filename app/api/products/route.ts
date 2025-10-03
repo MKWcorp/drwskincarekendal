@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
     
     if (slug) {
       // Get specific product by slug
-      products = await prisma.produk.findMany({
+      products = await (prisma as any).produk.findMany({
         where: { slug: slug },
         include: {
           produk_kategori: {
@@ -48,7 +48,7 @@ export async function GET(request: NextRequest) {
     } else {
       // Get products and packages based on type parameter
       if (!type || type === 'products' || type === 'all') {
-        products = await prisma.produk.findMany({
+        products = await (prisma as any).produk.findMany({
           include: {
             produk_kategori: {
               include: {
