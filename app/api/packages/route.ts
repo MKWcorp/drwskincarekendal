@@ -15,7 +15,7 @@ export async function GET(request: NextRequest) {
     
     if (slug) {
       // Get specific package by slug
-      packages = await prisma.paket_produk.findMany({
+  packages = await prisma.paket_produk.findMany({
         where: { slug: slug },
         include: {
           paket_kategori: {
@@ -46,7 +46,7 @@ export async function GET(request: NextRequest) {
       })
     } else {
       // Get all packages
-      packages = await prisma.paket_produk.findMany({
+  packages = await prisma.paket_produk.findMany({
         include: {
           paket_kategori: {
             include: {
